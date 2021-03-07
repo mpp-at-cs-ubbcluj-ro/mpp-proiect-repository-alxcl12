@@ -2,6 +2,9 @@
 
 namespace Lab2C.Model
 {
+    /// <summary>
+    /// Class used to model an administrator to the application
+    /// </summary>
     public class Admin: Entity<long>
     {
         private String Username { get; set; }

@@ -2,6 +2,9 @@
 
 namespace Lab2C.Model
 {
+    /// <summary>
+    /// Class used to model a trip
+    /// </summary>
     public class Trip: Entity<long>
     {
         private String Source { get; set; }

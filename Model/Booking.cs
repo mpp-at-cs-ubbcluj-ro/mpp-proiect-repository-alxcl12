@@ -1,5 +1,8 @@
 ﻿namespace Lab2C.Model
 {
+    /// <summary>
+    /// Class used to model a booking for one client and one trip
+    /// </summary>
     public class Booking: Entity<long>
     {
         private long ClientId { get; set; }
