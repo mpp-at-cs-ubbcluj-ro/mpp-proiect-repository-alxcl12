@@ -1,8 +1,13 @@
-package model;/*
+/*
  *  @author albua
  *  created on 28/02/2021
  */
 
+package model;
+
+/**
+ * Class used to model a client
+ */
 public class Client extends Entity<Long> {
     String firstName;
     String lastName;

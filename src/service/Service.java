@@ -14,6 +14,9 @@ import utils.Observer;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Service class for the application
+ */
 public class Service implements Observable {
     Repository<Long, Trip> repoTrip;
     Repository<Long, Admin> repoAdmins;

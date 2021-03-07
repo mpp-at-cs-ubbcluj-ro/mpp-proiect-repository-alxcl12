@@ -1,36 +1,39 @@
-package repository;/*
+/*
  *  @author albua
  *  created on 28/02/2021
  */
-
+package repository;
 import model.Trip;
 import model.validators.TripValidator;
 
+/**
+ * Repository used to store trips
+ */
 public class RepositoryTrip implements TripRepoInterface{
     TripValidator Validator;
 
     @Override
-    public Trip FindOne(Long aLong) {
+    public Trip findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public Iterable<Trip> FindAll() {
+    public Iterable<Trip> findAll() {
         return null;
     }
 
     @Override
-    public Trip Save(Trip entity) {
+    public Trip save(Trip entity) {
         return null;
     }
 
     @Override
-    public Trip Delete(Long aLong) {
+    public Trip delete(Long aLong) {
         return null;
     }
 
     @Override
-    public Trip Update(Trip entity) {
+    public Trip update(Trip entity) {
         return null;
     }
 }

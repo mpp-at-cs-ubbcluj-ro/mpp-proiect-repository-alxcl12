@@ -5,6 +5,9 @@
 package model;
 import java.time.LocalDateTime;
 
+/**
+ * Class used to model a trip
+ */
 public class Trip extends Entity<Long> {
     String source;
     String destination;
@@ -42,5 +45,13 @@ public class Trip extends Entity<Long> {
 
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public Integer getFreeSeats() {
+        return freeSeats;
+    }
+
+    public void setFreeSeats(Integer freeSeats) {
+        this.freeSeats = freeSeats;
     }
 }

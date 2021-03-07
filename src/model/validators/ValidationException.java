@@ -1,11 +1,13 @@
-package model.validators;/*
+/*
  *  @author albua
  *  created on 28/02/2021
  */
-
+package model.validators;
+/**
+ * Custom exception used to signal validation exception
+ */
 public class ValidationException extends RuntimeException {
-    public ValidationException() {
-    }
+    public ValidationException() { }
 
     public ValidationException(String message) {
         super(message);

@@ -6,6 +6,9 @@ package repository;
 
 import model.Trip;
 
+/**
+ * Interface for a repository used to store trips
+ */
 public interface TripRepoInterface extends Repository<Long, Trip> {
 
 }

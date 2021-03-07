@@ -6,29 +6,32 @@ package repository;
 
 import model.Client;
 
+/**
+ * Repository used to store clients
+ */
 public class RepositoryClient implements ClientRepoInterface{
     @Override
-    public Client FindOne(Long aLong) {
+    public Client findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public Iterable<Client> FindAll() {
+    public Iterable<Client> findAll() {
         return null;
     }
 
     @Override
-    public Client Save(Client entity) {
+    public Client save(Client entity) {
         return null;
     }
 
     @Override
-    public Client Delete(Long aLong) {
+    public Client delete(Long aLong) {
         return null;
     }
 
     @Override
-    public Client Update(Client entity) {
+    public Client update(Client entity) {
         return null;
     }
 }

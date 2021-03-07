@@ -5,16 +5,20 @@
 package repository;
 import model.Entity;
 
+/**
+ * Default interface used to store an entity with CRUD operations
+ * @param <ID> id of entity to be stored
+ * @param <E> stored entity
+ */
 public interface Repository<ID, E extends Entity<ID>> {
-    E FindOne(ID id);
+    E findOne(ID id);
 
-    Iterable<E> FindAll();
+    Iterable<E> findAll();
 
-    E Save(E entity);
+    E save(E entity);
 
-    E Delete(ID id);
+    E delete(ID id);
 
-
-    E Update(E entity);
+    E update(E entity);
 
 }

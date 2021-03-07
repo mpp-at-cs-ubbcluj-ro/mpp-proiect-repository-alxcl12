@@ -1,8 +1,12 @@
-package model;/*
+/*
  *  @author albua
  *  created on 28/02/2021
  */
+package model;
 
+/**
+ * Class used to model an administrator to the application
+ */
 public class Admin  extends Entity<Long>{
     String username;
     String passwordHash;

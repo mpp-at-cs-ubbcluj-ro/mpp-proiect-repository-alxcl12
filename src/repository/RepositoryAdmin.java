@@ -1,36 +1,39 @@
-package repository;/*
+/*
  *  @author albua
  *  created on 28/02/2021
  */
-
+package repository;
 import model.Admin;
 import model.validators.AdminValidator;
 
+/**
+ * Repository used to store admins
+ */
 public class RepositoryAdmin implements AdminRepoInterface{
     AdminValidator Validator;
 
     @Override
-    public Admin FindOne(Long aLong) {
+    public Admin findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public Iterable<Admin> FindAll() {
+    public Iterable<Admin> findAll() {
         return null;
     }
 
     @Override
-    public Admin Save(Admin entity) {
+    public Admin save(Admin entity) {
         return null;
     }
 
     @Override
-    public Admin Delete(Long aLong) {
+    public Admin delete(Long aLong) {
         return null;
     }
 
     @Override
-    public Admin Update(Admin entity) {
+    public Admin update(Admin entity) {
         return null;
     }
 }

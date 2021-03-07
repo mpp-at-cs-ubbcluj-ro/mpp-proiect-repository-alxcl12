@@ -4,6 +4,9 @@
  */
 package model;
 
+/**
+ * Classed used to model a booking for one client and one trip
+ */
 public class Booking extends Entity<Long> {
     Long clientID;
     Long tripID;

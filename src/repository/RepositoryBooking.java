@@ -6,29 +6,32 @@ package repository;
 
 import model.Booking;
 
+/**
+ * Repository used to store bookings
+ */
 public class RepositoryBooking implements BookingRepoInterface{
     @Override
-    public Booking FindOne(Long aLong) {
+    public Booking findOne(Long aLong) {
         return null;
     }
 
     @Override
-    public Iterable<Booking> FindAll() {
+    public Iterable<Booking> findAll() {
         return null;
     }
 
     @Override
-    public Booking Save(Booking entity) {
+    public Booking save(Booking entity) {
         return null;
     }
 
     @Override
-    public Booking Delete(Long aLong) {
+    public Booking delete(Long aLong) {
         return null;
     }
 
     @Override
-    public Booking Update(Booking entity) {
+    public Booking update(Booking entity) {
         return null;
     }
 }
