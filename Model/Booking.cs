@@ -5,14 +5,14 @@
     /// </summary>
     public class Booking: Entity<long>
     {
-        private long ClientId { get; set; }
-        private long TripId { get; set; }
+        private Client Client { get; set; }
+        private Trip Trip { get; set; }
         private int NrSeats { get; set; }
 
-        public Booking(long clientId, long tripId, int nrSeats)
+        public Booking(Client clientId, Trip tripId, int nrSeats)
         {
-            ClientId = clientId;
-            TripId = tripId;
+            Client = clientId;
+            Trip = tripId;
             NrSeats = nrSeats;
         }
     }
