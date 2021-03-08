@@ -6,7 +6,7 @@ package model;
 
 /**
  * Generic class used to represent entities with an unique identification
- * @param <Type>
+ * @param <Type> type ID of entity
  */
 public class Entity<Type> {
     Type ID;

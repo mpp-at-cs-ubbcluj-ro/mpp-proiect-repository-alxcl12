@@ -8,31 +8,31 @@ package model;
  * Classed used to model a booking for one client and one trip
  */
 public class Booking extends Entity<Long> {
-    Long clientID;
-    Long tripID;
+    Client client;
+    Trip trip;
     Integer nrSeats;
 
-    public Booking(Long Id, Long clientID, Long tripID, Integer nrSeats) {
+    public Booking(Long Id, Client client, Trip trip, Integer nrSeats) {
         this.ID = Id;
-        this.clientID = clientID;
-        this.tripID = tripID;
+        this.client = client;
+        this.trip = trip;
         this.nrSeats = nrSeats;
     }
 
-    public Long getClientID() {
-        return clientID;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientID(Long clientID) {
-        this.clientID = clientID;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public Long getTripID() {
-        return tripID;
+    public Trip getTrip() {
+        return trip;
     }
 
-    public void setTripID(Long tripID) {
-        this.tripID = tripID;
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 
     public Integer getNrSeats() {
