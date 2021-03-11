@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class RepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class RepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; RepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.518s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">adminRepoTest()</td>
+<td class="success">0.502s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">clientRepoTest()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>12 Mar 2021 00:24:28,492 INFO  repository.RepositoryAdmin 30 &lt;init&gt; - Initializing AdminRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 00:24:28,499 TRACE repository.RepositoryAdmin 91 save - Enter saving admin Admin{username='TestAdminUsername-822173088', ID=null}
+12 Mar 2021 00:24:28,500 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,501 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 00:24:28,501 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 00:24:28,502 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 00:24:28,503 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 00:24:28,609 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
+12 Mar 2021 00:24:28,616 TRACE repository.RepositoryAdmin 109 save - saved 1 instances
+12 Mar 2021 00:24:28,617 TRACE repository.RepositoryAdmin 115 save - Exit
+12 Mar 2021 00:24:28,617 TRACE repository.RepositoryAdmin 63 findAll - Enter
+12 Mar 2021 00:24:28,617 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,618 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
+12 Mar 2021 00:24:28,619 TRACE repository.RepositoryAdmin 84 findAll - Exit
+12 Mar 2021 00:24:28,621 TRACE repository.RepositoryAdmin 37 findOne - Enter
+12 Mar 2021 00:24:28,622 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,622 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
+12 Mar 2021 00:24:28,623 TRACE repository.RepositoryAdmin 57 findOne - Exit
+12 Mar 2021 00:24:28,632 INFO  repository.RepositoryClient 31 &lt;init&gt; - Initializing ClientRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 00:24:28,633 TRACE repository.RepositoryClient 92 save - Enter saving client Client{firstName='TestClientFirstName2034048392', lastName='TestClientLastName2034048392'}
+12 Mar 2021 00:24:28,633 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,633 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 00:24:28,637 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
+12 Mar 2021 00:24:28,642 TRACE repository.RepositoryClient 110 save - saved 1 instances
+12 Mar 2021 00:24:28,643 TRACE repository.RepositoryClient 116 save - Exit
+12 Mar 2021 00:24:28,643 TRACE repository.RepositoryClient 64 findAll - Enter
+12 Mar 2021 00:24:28,643 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,643 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
+12 Mar 2021 00:24:28,644 TRACE repository.RepositoryClient 85 findAll - Exit
+12 Mar 2021 00:24:28,644 TRACE repository.RepositoryClient 38 findOne - Enter
+12 Mar 2021 00:24:28,644 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 00:24:28,645 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
+12 Mar 2021 00:24:28,645 TRACE repository.RepositoryClient 58 findOne - Exit
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7</a> at 12 Mar 2021, 00:24:28</p>
+</div>
+</div>
+</body>
+</html>

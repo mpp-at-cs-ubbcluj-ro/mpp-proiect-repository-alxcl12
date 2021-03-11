@@ -9,7 +9,7 @@ package model;
  * @param <Type> type ID of entity
  */
 public class Entity<Type> {
-    Type ID;
+    protected Type ID;
 
     public Type getID() {
         return ID;

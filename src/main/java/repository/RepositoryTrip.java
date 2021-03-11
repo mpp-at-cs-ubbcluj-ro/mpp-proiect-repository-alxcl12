@@ -23,17 +23,17 @@ public class RepositoryTrip implements TripRepoInterface{
     }
 
     @Override
-    public Trip save(Trip entity) {
-        return null;
+    public void save(Trip entity) {
+        return;
     }
 
     @Override
-    public Trip delete(Long aLong) {
-        return null;
+    public void delete(Long aLong) {
+        return;
     }
 
     @Override
-    public Trip update(Trip entity) {
-        return null;
+    public void update(Trip entity) {
+        return;
     }
 }

@@ -8,11 +8,10 @@ package model;
  * Class used to model an administrator to the application
  */
 public class Admin  extends Entity<Long>{
-    String username;
-    String passwordHash;
+    private String username;
+    private String passwordHash;
 
-    public Admin(Long Id, String username, String passwordHash) {
-        this.ID = Id;
+    public Admin(String username, String passwordHash) {
         this.username = username;
         this.passwordHash = passwordHash;
     }
@@ -31,5 +30,13 @@ public class Admin  extends Entity<Long>{
 
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "username='" + username + '\'' +
+                ", ID=" + ID +
+                '}';
     }
 }

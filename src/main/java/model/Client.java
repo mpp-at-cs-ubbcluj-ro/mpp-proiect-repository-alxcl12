@@ -9,11 +9,10 @@ package model;
  * Class used to model a client
  */
 public class Client extends Entity<Long> {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
 
-    public Client(Long Id, String firstName, String lastName) {
-        this.ID = Id;
+    public Client(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -32,5 +31,13 @@ public class Client extends Entity<Long> {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

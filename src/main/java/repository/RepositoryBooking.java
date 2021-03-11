@@ -21,17 +21,17 @@ public class RepositoryBooking implements BookingRepoInterface{
     }
 
     @Override
-    public Booking save(Booking entity) {
-        return null;
+    public void save(Booking entity) {
+        return;
     }
 
     @Override
-    public Booking delete(Long aLong) {
-        return null;
+    public void delete(Long aLong) {
+        return;
     }
 
     @Override
-    public Booking update(Booking entity) {
-        return null;
+    public void update(Booking entity) {
+        return;
     }
 }
