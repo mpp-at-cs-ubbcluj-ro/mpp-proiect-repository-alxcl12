@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
  * Class used to model a trip
  */
 public class Trip extends Entity<Long> {
-    String source;
-    String destination;
-    LocalDateTime departureTime;
-    Integer freeSeats;
+    private String source;
+    private String destination;
+    private LocalDateTime departureTime;
+    private Integer freeSeats;
 
     public static Integer defaultFreeSeats = 18;
 
@@ -53,5 +53,15 @@ public class Trip extends Entity<Long> {
 
     public void setFreeSeats(Integer freeSeats) {
         this.freeSeats = freeSeats;
+    }
+
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", departureTime=" + departureTime +
+                ", freeSeats=" + freeSeats +
+                '}';
     }
 }

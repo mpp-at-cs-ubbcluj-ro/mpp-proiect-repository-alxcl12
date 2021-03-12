@@ -8,12 +8,11 @@ package model;
  * Classed used to model a booking for one client and one trip
  */
 public class Booking extends Entity<Long> {
-    Client client;
-    Trip trip;
-    Integer nrSeats;
+    private Client client;
+    private Trip trip;
+    private Integer nrSeats;
 
-    public Booking(Long Id, Client client, Trip trip, Integer nrSeats) {
-        this.ID = Id;
+    public Booking(Client client, Trip trip, Integer nrSeats) {
         this.client = client;
         this.trip = trip;
         this.nrSeats = nrSeats;
@@ -41,5 +40,14 @@ public class Booking extends Entity<Long> {
 
     public void setNrSeats(Integer nrSeats) {
         this.nrSeats = nrSeats;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "client=" + client +
+                ", trip=" + trip +
+                ", nrSeats=" + nrSeats +
+                '}';
     }
 }

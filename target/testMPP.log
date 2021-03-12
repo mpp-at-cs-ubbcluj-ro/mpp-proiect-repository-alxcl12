@@ -125,3 +125,241 @@
 12 Mar 2021 00:24:28,644 TRACE repository.JdbcUtil 53 getConnection - Enter
 12 Mar 2021 00:24:28,645 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
 12 Mar 2021 00:24:28,645 TRACE repository.RepositoryClient 58 findOne - Exit
+12 Mar 2021 12:42:16,998 INFO  repository.RepositoryTrip 28 <init> - Initializing TripRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:42:17,035 TRACE repository.RepositoryTrip 94 save - Enter saving trip Trip{source='TestSource-206989128', destination='TestDestination-206989128', departureTime=2021-03-12T12:42:17.027386900, freeSeats=5}
+12 Mar 2021 12:42:17,036 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:17,036 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:42:17,037 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:42:17,037 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:42:17,038 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:42:17,141 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:17,151 TRACE repository.RepositoryTrip 115 save - saved 1 instances
+12 Mar 2021 12:42:17,151 TRACE repository.RepositoryTrip 121 save - Exit
+12 Mar 2021 12:42:17,152 TRACE repository.RepositoryTrip 64 findAll - Enter
+12 Mar 2021 12:42:17,152 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:17,152 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:17,154 TRACE repository.RepositoryTrip 87 findAll - Exit
+12 Mar 2021 12:42:17,158 TRACE repository.RepositoryTrip 36 findOne - Enter
+12 Mar 2021 12:42:17,159 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:17,159 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:17,160 TRACE repository.RepositoryTrip 58 findOne - Exit
+12 Mar 2021 12:42:39,270 INFO  repository.RepositoryTrip 28 <init> - Initializing TripRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:42:39,289 TRACE repository.RepositoryTrip 94 save - Enter saving trip Trip{source='TestSource-610436326', destination='TestDestination-610436326', departureTime=2021-03-12T12:42:39.281939700, freeSeats=5}
+12 Mar 2021 12:42:39,289 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:39,290 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:42:39,290 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:42:39,291 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:42:39,292 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:42:39,383 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:39,391 TRACE repository.RepositoryTrip 115 save - saved 1 instances
+12 Mar 2021 12:42:39,391 TRACE repository.RepositoryTrip 121 save - Exit
+12 Mar 2021 12:42:39,392 TRACE repository.RepositoryTrip 64 findAll - Enter
+12 Mar 2021 12:42:39,392 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:39,392 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:39,394 TRACE repository.RepositoryTrip 87 findAll - Exit
+12 Mar 2021 12:42:39,396 TRACE repository.RepositoryTrip 36 findOne - Enter
+12 Mar 2021 12:42:39,397 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:42:39,397 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:42:39,398 TRACE repository.RepositoryTrip 58 findOne - Exit
+12 Mar 2021 12:43:29,492 INFO  repository.RepositoryTrip 28 <init> - Initializing TripRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:43:29,509 TRACE repository.RepositoryTrip 94 save - Enter saving trip Trip{source='TestSource-1644475753', destination='TestDestination-1644475753', departureTime=2021-03-12T12:43:29.502718200, freeSeats=5}
+12 Mar 2021 12:43:29,509 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:43:29,510 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:43:29,510 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:43:29,511 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:43:29,511 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:43:29,615 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:43:29,622 TRACE repository.RepositoryTrip 115 save - saved 1 instances
+12 Mar 2021 12:43:29,622 TRACE repository.RepositoryTrip 121 save - Exit
+12 Mar 2021 12:43:29,622 TRACE repository.RepositoryTrip 64 findAll - Enter
+12 Mar 2021 12:43:29,623 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:43:29,623 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:43:29,625 TRACE repository.RepositoryTrip 87 findAll - Exit
+12 Mar 2021 12:43:29,628 TRACE repository.RepositoryTrip 36 findOne - Enter
+12 Mar 2021 12:43:29,628 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:43:29,628 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 12:43:29,629 TRACE repository.RepositoryTrip 58 findOne - Exit
+12 Mar 2021 12:57:49,302 INFO  repository.RepositoryAdmin 30 <init> - Initializing AdminRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:57:49,309 TRACE repository.RepositoryAdmin 91 save - Enter saving admin Admin{username='TestAdminUsername2020677870', ID=null}
+12 Mar 2021 12:57:49,309 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,310 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:57:49,310 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:57:49,311 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:57:49,311 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:57:49,410 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2bb759b9)
+12 Mar 2021 12:57:49,416 TRACE repository.RepositoryAdmin 109 save - saved 1 instances
+12 Mar 2021 12:57:49,417 TRACE repository.RepositoryAdmin 115 save - Exit
+12 Mar 2021 12:57:49,417 TRACE repository.RepositoryAdmin 63 findAll - Enter
+12 Mar 2021 12:57:49,417 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,418 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2bb759b9)
+12 Mar 2021 12:57:49,419 TRACE repository.RepositoryAdmin 84 findAll - Exit
+12 Mar 2021 12:57:49,422 TRACE repository.RepositoryAdmin 37 findOne - Enter
+12 Mar 2021 12:57:49,423 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,423 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2bb759b9)
+12 Mar 2021 12:57:49,424 TRACE repository.RepositoryAdmin 57 findOne - Exit
+12 Mar 2021 12:57:49,432 INFO  repository.RepositoryTrip 28 <init> - Initializing TripRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:57:49,441 TRACE repository.RepositoryTrip 94 save - Enter saving trip Trip{source='TestSource558212276', destination='TestDestination558212276', departureTime=2021-03-12T12:57:49.436372, freeSeats=5}
+12 Mar 2021 12:57:49,441 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,441 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:57:49,442 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:57:49,442 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:57:49,442 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:57:49,444 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@37131f06)
+12 Mar 2021 12:57:49,449 TRACE repository.RepositoryTrip 115 save - saved 1 instances
+12 Mar 2021 12:57:49,450 TRACE repository.RepositoryTrip 121 save - Exit
+12 Mar 2021 12:57:49,450 TRACE repository.RepositoryTrip 64 findAll - Enter
+12 Mar 2021 12:57:49,450 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,450 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@37131f06)
+12 Mar 2021 12:57:49,451 TRACE repository.RepositoryTrip 87 findAll - Exit
+12 Mar 2021 12:57:49,452 TRACE repository.RepositoryTrip 36 findOne - Enter
+12 Mar 2021 12:57:49,452 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,452 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@37131f06)
+12 Mar 2021 12:57:49,453 TRACE repository.RepositoryTrip 58 findOne - Exit
+12 Mar 2021 12:57:49,457 INFO  repository.RepositoryClient 31 <init> - Initializing ClientRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 12:57:49,458 TRACE repository.RepositoryClient 92 save - Enter saving client Client{firstName='TestClientFirstName-576531722', lastName='TestClientLastName-576531722'}
+12 Mar 2021 12:57:49,458 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,459 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 12:57:49,459 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 12:57:49,459 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 12:57:49,460 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 12:57:49,462 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5f9c69fb)
+12 Mar 2021 12:57:49,467 TRACE repository.RepositoryClient 110 save - saved 1 instances
+12 Mar 2021 12:57:49,467 TRACE repository.RepositoryClient 116 save - Exit
+12 Mar 2021 12:57:49,468 TRACE repository.RepositoryClient 64 findAll - Enter
+12 Mar 2021 12:57:49,468 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,469 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5f9c69fb)
+12 Mar 2021 12:57:49,469 TRACE repository.RepositoryClient 85 findAll - Exit
+12 Mar 2021 12:57:49,470 TRACE repository.RepositoryClient 38 findOne - Enter
+12 Mar 2021 12:57:49,470 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 12:57:49,470 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5f9c69fb)
+12 Mar 2021 12:57:49,471 TRACE repository.RepositoryClient 58 findOne - Exit
+12 Mar 2021 13:40:32,115 INFO  repository.RepositoryBooking 34 <init> - Initializing BookingRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 13:40:32,132 TRACE repository.RepositoryBooking 99 save - Enter saving booking Booking{client=Client{firstName='tst', lastName='test'}, trip=Trip{source='tst', destination='test', departureTime=2021-03-12T13:40:32.124179200, freeSeats=5}, nrSeats=3}
+12 Mar 2021 13:40:32,132 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,133 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 13:40:32,133 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 13:40:32,134 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 13:40:32,134 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 13:40:32,218 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,226 TRACE repository.RepositoryBooking 119 save - saved 1 instances
+12 Mar 2021 13:40:32,226 TRACE repository.RepositoryBooking 125 save - Exit
+12 Mar 2021 13:40:32,227 TRACE repository.RepositoryBooking 69 findAll - Enter
+12 Mar 2021 13:40:32,227 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,228 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,229 TRACE repository.RepositoryBooking 197 findOneClient - Enter
+12 Mar 2021 13:40:32,229 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,229 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,229 TRACE repository.RepositoryBooking 217 findOneClient - Exit
+12 Mar 2021 13:40:32,230 TRACE repository.RepositoryBooking 169 findOneTrip - Enter
+12 Mar 2021 13:40:32,230 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,230 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,231 TRACE repository.RepositoryBooking 191 findOneTrip - Exit
+12 Mar 2021 13:40:32,231 TRACE repository.RepositoryBooking 92 findAll - Exit
+12 Mar 2021 13:40:32,234 TRACE repository.RepositoryBooking 42 findOne - Enter
+12 Mar 2021 13:40:32,234 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,234 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,235 TRACE repository.RepositoryBooking 197 findOneClient - Enter
+12 Mar 2021 13:40:32,235 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,236 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,236 TRACE repository.RepositoryBooking 217 findOneClient - Exit
+12 Mar 2021 13:40:32,237 TRACE repository.RepositoryBooking 169 findOneTrip - Enter
+12 Mar 2021 13:40:32,237 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:32,237 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@336e2509)
+12 Mar 2021 13:40:32,238 TRACE repository.RepositoryBooking 191 findOneTrip - Exit
+12 Mar 2021 13:40:32,238 TRACE repository.RepositoryBooking 63 findOne - Exit
+12 Mar 2021 13:40:41,310 INFO  repository.RepositoryBooking 34 <init> - Initializing BookingRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 13:40:41,326 TRACE repository.RepositoryBooking 99 save - Enter saving booking Booking{client=Client{firstName='tst', lastName='test'}, trip=Trip{source='tst', destination='test', departureTime=2021-03-12T13:40:41.319920600, freeSeats=5}, nrSeats=3}
+12 Mar 2021 13:40:41,327 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,327 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 13:40:41,328 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 13:40:41,328 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 13:40:41,329 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 13:40:41,433 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,441 TRACE repository.RepositoryBooking 119 save - saved 1 instances
+12 Mar 2021 13:40:41,442 TRACE repository.RepositoryBooking 125 save - Exit
+12 Mar 2021 13:40:41,442 TRACE repository.RepositoryBooking 69 findAll - Enter
+12 Mar 2021 13:40:41,442 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,443 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,444 TRACE repository.RepositoryBooking 197 findOneClient - Enter
+12 Mar 2021 13:40:41,444 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,445 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,445 TRACE repository.RepositoryBooking 217 findOneClient - Exit
+12 Mar 2021 13:40:41,446 TRACE repository.RepositoryBooking 169 findOneTrip - Enter
+12 Mar 2021 13:40:41,446 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,446 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,447 TRACE repository.RepositoryBooking 191 findOneTrip - Exit
+12 Mar 2021 13:40:41,448 TRACE repository.RepositoryBooking 197 findOneClient - Enter
+12 Mar 2021 13:40:41,448 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,448 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,448 TRACE repository.RepositoryBooking 217 findOneClient - Exit
+12 Mar 2021 13:40:41,449 TRACE repository.RepositoryBooking 169 findOneTrip - Enter
+12 Mar 2021 13:40:41,449 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,449 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,450 TRACE repository.RepositoryBooking 191 findOneTrip - Exit
+12 Mar 2021 13:40:41,450 TRACE repository.RepositoryBooking 92 findAll - Exit
+12 Mar 2021 13:40:41,452 TRACE repository.RepositoryBooking 42 findOne - Enter
+12 Mar 2021 13:40:41,453 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,453 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,454 TRACE repository.RepositoryBooking 197 findOneClient - Enter
+12 Mar 2021 13:40:41,454 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,454 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,455 TRACE repository.RepositoryBooking 217 findOneClient - Exit
+12 Mar 2021 13:40:41,455 TRACE repository.RepositoryBooking 169 findOneTrip - Enter
+12 Mar 2021 13:40:41,455 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,455 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@9b45390)
+12 Mar 2021 13:40:41,456 TRACE repository.RepositoryBooking 191 findOneTrip - Exit
+12 Mar 2021 13:40:41,456 TRACE repository.RepositoryBooking 63 findOne - Exit
+12 Mar 2021 13:40:41,465 INFO  repository.RepositoryAdmin 30 <init> - Initializing AdminRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 13:40:41,465 TRACE repository.RepositoryAdmin 91 save - Enter saving admin Admin{username='TestAdminUsername-779491996', ID=null}
+12 Mar 2021 13:40:41,465 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,466 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 13:40:41,466 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 13:40:41,466 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 13:40:41,466 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 13:40:41,469 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@62732f31)
+12 Mar 2021 13:40:41,473 TRACE repository.RepositoryAdmin 109 save - saved 1 instances
+12 Mar 2021 13:40:41,474 TRACE repository.RepositoryAdmin 115 save - Exit
+12 Mar 2021 13:40:41,474 TRACE repository.RepositoryAdmin 63 findAll - Enter
+12 Mar 2021 13:40:41,474 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,475 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@62732f31)
+12 Mar 2021 13:40:41,475 TRACE repository.RepositoryAdmin 84 findAll - Exit
+12 Mar 2021 13:40:41,476 TRACE repository.RepositoryAdmin 37 findOne - Enter
+12 Mar 2021 13:40:41,476 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,476 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@62732f31)
+12 Mar 2021 13:40:41,477 TRACE repository.RepositoryAdmin 57 findOne - Exit
+12 Mar 2021 13:40:41,480 INFO  repository.RepositoryTrip 28 <init> - Initializing TripRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 13:40:41,481 TRACE repository.RepositoryTrip 94 save - Enter saving trip Trip{source='TestSource1562855221', destination='TestDestination1562855221', departureTime=2021-03-12T13:40:41.481956200, freeSeats=5}
+12 Mar 2021 13:40:41,481 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,482 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 13:40:41,482 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 13:40:41,483 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 13:40:41,483 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 13:40:41,485 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@327e3a16)
+12 Mar 2021 13:40:41,490 TRACE repository.RepositoryTrip 115 save - saved 1 instances
+12 Mar 2021 13:40:41,490 TRACE repository.RepositoryTrip 121 save - Exit
+12 Mar 2021 13:40:41,490 TRACE repository.RepositoryTrip 64 findAll - Enter
+12 Mar 2021 13:40:41,491 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,491 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@327e3a16)
+12 Mar 2021 13:40:41,492 TRACE repository.RepositoryTrip 87 findAll - Exit
+12 Mar 2021 13:40:41,493 TRACE repository.RepositoryTrip 36 findOne - Enter
+12 Mar 2021 13:40:41,493 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,493 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@327e3a16)
+12 Mar 2021 13:40:41,494 TRACE repository.RepositoryTrip 58 findOne - Exit
+12 Mar 2021 13:40:41,498 INFO  repository.RepositoryClient 31 <init> - Initializing ClientRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+12 Mar 2021 13:40:41,499 TRACE repository.RepositoryClient 92 save - Enter saving client Client{firstName='TestClientFirstName560570469', lastName='TestClientLastName560570469'}
+12 Mar 2021 13:40:41,499 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,499 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+12 Mar 2021 13:40:41,499 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+12 Mar 2021 13:40:41,500 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+12 Mar 2021 13:40:41,500 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+12 Mar 2021 13:40:41,502 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@57a107f)
+12 Mar 2021 13:40:41,508 TRACE repository.RepositoryClient 110 save - saved 1 instances
+12 Mar 2021 13:40:41,508 TRACE repository.RepositoryClient 116 save - Exit
+12 Mar 2021 13:40:41,508 TRACE repository.RepositoryClient 64 findAll - Enter
+12 Mar 2021 13:40:41,508 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,509 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@57a107f)
+12 Mar 2021 13:40:41,510 TRACE repository.RepositoryClient 85 findAll - Exit
+12 Mar 2021 13:40:41,511 TRACE repository.RepositoryClient 38 findOne - Enter
+12 Mar 2021 13:40:41,512 TRACE repository.JdbcUtil 53 getConnection - Enter
+12 Mar 2021 13:40:41,512 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@57a107f)
+12 Mar 2021 13:40:41,513 TRACE repository.RepositoryClient 58 findOne - Exit
