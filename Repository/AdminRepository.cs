@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SQLite;
 using Lab2C.Model;
 using Lab2C.Model.Validators;
 using Lab2C.Repository.DbUtils;
@@ -97,7 +95,7 @@ namespace Lab2C.Repository
             {
                 _validator.Validate(entity);
             }
-            catch (ValidationException e)
+            catch (ValidationException)
             {
                 Logger.ErrorFormat("Invalid admin {0}", entity);
             }

@@ -16,3 +16,6 @@ C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C.exe
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C.pdb
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\Mono.Data.Sqlite.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\nunit.framework.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\nunit.framework.xml

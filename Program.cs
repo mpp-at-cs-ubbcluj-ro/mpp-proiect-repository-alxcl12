@@ -1,6 +1,7 @@
 ﻿using System;
 using Lab2C.Model.Validators;
 using Lab2C.Repository;
+using Lab2C.Repository.DbUtils;
 
 namespace Lab2C
 {
@@ -8,8 +9,8 @@ namespace Lab2C
     {
         public static void Main(string[] args)
         {
-            var validator = new AdminValidator();
-            var adminRepository = new AdminRepository(validator);
+            var validator = new ClientValidator();
+            var adminRepository = new ClientRepository(validator);
 
             var list = adminRepository.FindAll();
             
