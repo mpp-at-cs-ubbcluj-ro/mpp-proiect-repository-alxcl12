@@ -6,6 +6,6 @@
     /// <typeparam name="TId"> type of ID </typeparam>
     public class Entity<TId>
     {
-        private TId Id { get; set; }
+        public TId Id { get; set; }
     }
 }

@@ -14,10 +14,10 @@ namespace Lab2C.Repository
 
         IEnumerable<TE> FindAll();
 
-        TE Save(TE entity);
+        void Save(TE entity);
 
-        TE Delete(ID id);
+        void Delete(ID id);
 
-        TE Update(TE entity);
+        void Update(TE entity);
     }
 }
