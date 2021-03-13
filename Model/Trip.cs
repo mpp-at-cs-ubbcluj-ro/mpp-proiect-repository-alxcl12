@@ -7,10 +7,10 @@ namespace Lab2C.Model
     /// </summary>
     public class Trip: Entity<long>
     {
-        private String Source { get; set; }
-        private String Destination { get; set; }
-        private DateTime DepartureTime { get; set; }
-        private int FreeSeats { get; set; }
+        public String Source { get; set; }
+        public String Destination { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public int FreeSeats { get; set; }
 
         public static int DefaultFreeSeats = 18;
 

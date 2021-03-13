@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using Lab2C.Model;
 using Lab2C.Model.Validators;
+using Lab2C.Repository.DbUtils;
 using log4net;
 
-namespace Lab2C.Repository.DbUtils
+namespace Lab2C.Repository
 {
     public class ClientRepository: IClientRepo
     {

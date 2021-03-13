@@ -5,9 +5,9 @@
     /// </summary>
     public class Booking: Entity<long>
     {
-        private Client Client { get; set; }
-        private Trip Trip { get; set; }
-        private int NrSeats { get; set; }
+        public Client Client { get; set; }
+        public Trip Trip { get; set; }
+        public int NrSeats { get; set; }
 
         public Booking(Client clientId, Trip tripId, int nrSeats)
         {

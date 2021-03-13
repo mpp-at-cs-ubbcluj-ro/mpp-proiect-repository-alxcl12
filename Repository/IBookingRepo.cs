@@ -7,6 +7,8 @@ namespace Lab2C.Repository
     /// </summary>
     public interface IBookingRepo: IRepository<long, Booking>
     {
-        
+        Trip FindOneTrip(long tripId);
+
+        Client FindOneClient(long clientId);
     }
 }
