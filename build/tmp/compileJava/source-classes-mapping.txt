@@ -1,48 +1,58 @@
-model/validators/Validator.java
- model.validators.Validator
-repository/JdbcUtil.java
- repository.JdbcUtil
-model/validators/ValidationException.java
- model.validators.ValidationException
-utils/Observable.java
- utils.Observable
-utils/Observer.java
- utils.Observer
 model/Booking.java
  model.Booking
-service/Service.java
- service.Service
+utils/Observable.java
+ utils.Observable
+model/Admin.java
+ model.Admin
 model/Entity.java
  model.Entity
-repository/AdminRepoInterface.java
- repository.AdminRepoInterface
+service/Service.java
+ service.Service
+utils/Observer.java
+ utils.Observer
 model/validators/AdminValidator.java
  model.validators.AdminValidator
-repository/RepositoryBooking.java
- repository.RepositoryBooking
-model/validators/ClientValidator.java
- model.validators.ClientValidator
-repository/Repository.java
- repository.Repository
-Console.java
- Console
-repository/ClientRepoInterface.java
- repository.ClientRepoInterface
 model/validators/TripValidator.java
  model.validators.TripValidator
+model/validators/BookingValidator.java
+ model.validators.BookingValidator
+repository/Repository.java
+ repository.Repository
+repository/JdbcUtil.java
+ repository.JdbcUtil
+Main.java
+ Main
+repository/ClientRepoInterface.java
+ repository.ClientRepoInterface
 repository/RepositoryTrip.java
  repository.RepositoryTrip
 model/Trip.java
  model.Trip
 repository/BookingRepoInterface.java
  repository.BookingRepoInterface
-model/Admin.java
- model.Admin
 repository/TripRepoInterface.java
  repository.TripRepoInterface
 model/Client.java
  model.Client
-repository/RepositoryAdmin.java
- repository.RepositoryAdmin
+model/validators/ClientValidator.java
+ model.validators.ClientValidator
+repository/RepositoryBooking.java
+ repository.RepositoryBooking
 repository/RepositoryClient.java
  repository.RepositoryClient
+model/validators/Validator.java
+ model.validators.Validator
+model/validators/ValidationException.java
+ model.validators.ValidationException
+controller/LoginController.java
+ controller.LoginController
+repository/AdminRepoInterface.java
+ repository.AdminRepoInterface
+ui/GUI.java
+ ui.GUI
+controller/MainViewController.java
+ controller.MainViewController
+controller/LoginManager.java
+ controller.LoginManager
+repository/RepositoryAdmin.java
+ repository.RepositoryAdmin

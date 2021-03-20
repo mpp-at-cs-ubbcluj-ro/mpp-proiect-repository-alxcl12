@@ -9,6 +9,8 @@ import model.validators.ValidationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,9 +46,9 @@ public class RepositoryAdmin implements AdminRepoInterface{
                 if (result.next()){
                     Long id = result.getLong("ID");
                     String username = result.getString("username");
-                    String passwordHash = result.getString("passwordHash");
+                    byte[] passHash = result.getBytes(2);
 
-                    admin = new Admin(username, passwordHash);
+                    admin = new Admin(username, passHash);
                     admin.setID(id);
                 }
             }
@@ -70,9 +72,9 @@ public class RepositoryAdmin implements AdminRepoInterface{
                 while (result.next()){
                     Long id = result.getLong("ID");
                     String username = result.getString("username");
-                    String passwordHash = result.getString("passwordHash");
+                    byte[] passHash = result.getBytes(2);
 
-                    Admin admin = new Admin(username, passwordHash);
+                    Admin admin = new Admin(username, passHash);
                     admin.setID(id);
                     admins.add(admin);
                 }
@@ -102,7 +104,7 @@ public class RepositoryAdmin implements AdminRepoInterface{
         try(PreparedStatement preStmt = con.prepareStatement("insert into Admins (username, passwordHash) values (?,?)")){
 
             preStmt.setString(1, entity.getUsername());
-            preStmt.setString(2, entity.getPasswordHash());
+            preStmt.setBytes(2, entity.getPasswordHash());
 
             int result = preStmt.executeUpdate();
 
@@ -142,7 +144,7 @@ public class RepositoryAdmin implements AdminRepoInterface{
                 " ID=?")){
 
             preStmt.setString(1, entity.getUsername());
-            preStmt.setString(2, entity.getPasswordHash());
+            preStmt.setBytes(2, entity.getPasswordHash());
             preStmt.setLong(3, entity.getID());
 
             int result = preStmt.executeUpdate();
@@ -153,5 +155,38 @@ public class RepositoryAdmin implements AdminRepoInterface{
         }
 
         logger.traceExit();
+    }
+
+    @Override
+    public Admin authenticateAdmin(String username, String password) throws NoSuchAlgorithmException {
+        logger.traceEntry();
+        Connection con = dbUtils.getConnection();
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(password.getBytes());
+
+        byte[] digest = md.digest();
+
+        Admin admin = null;
+        try (PreparedStatement preStmt = con.prepareStatement("select * from Admins where username=? and passwordHash=?")){
+            preStmt.setString(1, username);
+            preStmt.setBytes(2, digest);
+
+            try (ResultSet result = preStmt.executeQuery()){
+                if (result.next()){
+                    Long id = result.getLong("ID");
+                    String user = result.getString("username");
+                    byte[] passHash = result.getBytes(2);
+
+                    admin = new Admin(user, passHash);
+                    admin.setID(id);
+                }
+            }
+        }
+        catch (SQLException e){
+            logger.error(e);
+        }
+        logger.traceExit();
+        return admin;
     }
 }

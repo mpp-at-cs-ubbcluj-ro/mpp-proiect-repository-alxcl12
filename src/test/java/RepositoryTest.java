@@ -20,6 +20,8 @@ import repository.RepositoryTrip;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.Properties;
 import java.util.Random;
@@ -28,7 +30,7 @@ import java.util.stream.StreamSupport;
 public class RepositoryTest {
 
     @Test
-    public void adminRepoTest(){
+    public void adminRepoTest() throws NoSuchAlgorithmException {
         Properties props = new Properties();
         try {
             props.load(new FileReader("bd.config"));
@@ -42,7 +44,14 @@ public class RepositoryTest {
 
         int number = random.nextInt();
 
-        Admin testAdmin = new Admin("TestAdminUsername" + number, "TestPasswordHash" + number);
+        String unHashedPasswd = "TestPasswordHash" + number;
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(unHashedPasswd.getBytes());
+
+        byte[] hashedPasswd = md.digest();
+
+
+        Admin testAdmin = new Admin("TestAdminUsername" + number, hashedPasswd);
 
         adminRepo.save(testAdmin);
 

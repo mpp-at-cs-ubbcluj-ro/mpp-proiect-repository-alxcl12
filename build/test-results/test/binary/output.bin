@@ -1,36 +1,18 @@
-’12 Mar 2021 00:24:28,492 INFO  repository.RepositoryAdmin 30 <init> - Initializing AdminRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
-è12 Mar 2021 00:24:28,499 TRACE repository.RepositoryAdmin 91 save - Enter saving admin Admin{username='TestAdminUsername-822173088', ID=null}
-M12 Mar 2021 00:24:28,500 TRACE repository.JdbcUtil 53 getConnection - Enter
-P12 Mar 2021 00:24:28,501 TRACE repository.JdbcUtil 27 getNewConnection - Enter
-¿12 Mar 2021 00:24:28,501 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
-U12 Mar 2021 00:24:28,502 INFO  repository.JdbcUtil 33 getNewConnection - user: null
-U12 Mar 2021 00:24:28,503 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
-|12 Mar 2021 00:24:28,609 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
-X12 Mar 2021 00:24:28,616 TRACE repository.RepositoryAdmin 109 save - saved 1 instances
-K12 Mar 2021 00:24:28,617 TRACE repository.RepositoryAdmin 115 save - Exit
-N12 Mar 2021 00:24:28,617 TRACE repository.RepositoryAdmin 63 findAll - Enter
-M12 Mar 2021 00:24:28,617 TRACE repository.JdbcUtil 53 getConnection - Enter
-|12 Mar 2021 00:24:28,618 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
-M12 Mar 2021 00:24:28,619 TRACE repository.RepositoryAdmin 84 findAll - Exit
-N12 Mar 2021 00:24:28,621 TRACE repository.RepositoryAdmin 37 findOne - Enter
-M12 Mar 2021 00:24:28,622 TRACE repository.JdbcUtil 53 getConnection - Enter
-|12 Mar 2021 00:24:28,622 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@1fc41c22)
-M12 Mar 2021 00:24:28,623 TRACE repository.RepositoryAdmin 57 findOne - Exit
-◊12 Mar 2021 00:24:28,632 INFO  repository.RepositoryClient 31 <init> - Initializing ClientRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
-µ12 Mar 2021 00:24:28,633 TRACE repository.RepositoryClient 92 save - Enter saving client Client{firstName='TestClientFirstName2034048392', lastName='TestClientLastName2034048392'}
-M12 Mar 2021 00:24:28,633 TRACE repository.JdbcUtil 53 getConnection - Enter
-P12 Mar 2021 00:24:28,633 TRACE repository.JdbcUtil 27 getNewConnection - Enter
-¿12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
-U12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 33 getNewConnection - user: null
-U12 Mar 2021 00:24:28,634 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
-|12 Mar 2021 00:24:28,637 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
-Y12 Mar 2021 00:24:28,642 TRACE repository.RepositoryClient 110 save - saved 1 instances
-L12 Mar 2021 00:24:28,643 TRACE repository.RepositoryClient 116 save - Exit
-O12 Mar 2021 00:24:28,643 TRACE repository.RepositoryClient 64 findAll - Enter
-M12 Mar 2021 00:24:28,643 TRACE repository.JdbcUtil 53 getConnection - Enter
-|12 Mar 2021 00:24:28,643 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
-N12 Mar 2021 00:24:28,644 TRACE repository.RepositoryClient 85 findAll - Exit
-O12 Mar 2021 00:24:28,644 TRACE repository.RepositoryClient 38 findOne - Enter
-M12 Mar 2021 00:24:28,644 TRACE repository.JdbcUtil 53 getConnection - Enter
-|12 Mar 2021 00:24:28,645 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@76dc49f5)
-N12 Mar 2021 00:24:28,645 TRACE repository.RepositoryClient 58 findOne - Exit
+’20 Mar 2021 13:21:09,860 INFO  repository.RepositoryAdmin 32 <init> - Initializing AdminRepository with properties: {jdbc.url=jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db} 
+è20 Mar 2021 13:21:09,867 TRACE repository.RepositoryAdmin 93 save - Enter saving admin Admin{username='TestAdminUsername1770650543', ID=null}
+M20 Mar 2021 13:21:09,868 TRACE repository.JdbcUtil 53 getConnection - Enter
+P20 Mar 2021 13:21:09,868 TRACE repository.JdbcUtil 27 getNewConnection - Enter
+¿20 Mar 2021 13:21:09,868 INFO  repository.JdbcUtil 32 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db
+U20 Mar 2021 13:21:09,869 INFO  repository.JdbcUtil 33 getNewConnection - user: null
+U20 Mar 2021 13:21:09,869 INFO  repository.JdbcUtil 34 getNewConnection - pass: null
+|20 Mar 2021 13:21:09,951 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@79f2c5af)
+X20 Mar 2021 13:21:09,959 TRACE repository.RepositoryAdmin 111 save - saved 1 instances
+K20 Mar 2021 13:21:09,959 TRACE repository.RepositoryAdmin 117 save - Exit
+N20 Mar 2021 13:21:09,959 TRACE repository.RepositoryAdmin 65 findAll - Enter
+M20 Mar 2021 13:21:09,960 TRACE repository.JdbcUtil 53 getConnection - Enter
+|20 Mar 2021 13:21:09,960 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@79f2c5af)
+M20 Mar 2021 13:21:09,962 TRACE repository.RepositoryAdmin 86 findAll - Exit
+N20 Mar 2021 13:21:09,964 TRACE repository.RepositoryAdmin 39 findOne - Enter
+M20 Mar 2021 13:21:09,964 TRACE repository.JdbcUtil 53 getConnection - Enter
+|20 Mar 2021 13:21:09,964 TRACE repository.JdbcUtil 62 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@79f2c5af)
+M20 Mar 2021 13:21:09,965 TRACE repository.RepositoryAdmin 59 findOne - Exit
