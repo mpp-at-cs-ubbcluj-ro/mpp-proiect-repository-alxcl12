@@ -3,6 +3,7 @@
  *  created on 28/02/2021
  */
 package repository;
+import model.Booking;
 import model.Trip;
 import model.validators.TripValidator;
 import model.validators.ValidationException;
@@ -159,5 +160,33 @@ public class RepositoryTrip implements TripRepoInterface{
         }
 
         logger.traceExit();
+    }
+
+    @Override
+    public Iterable<Booking> findBookingsForTrip(Long tripId) {
+        Connection con = dbUtils.getConnection();
+
+        HashSet<Booking> result = new HashSet<>();
+        try(PreparedStatement preStmt = con.prepareStatement("select * from Bookings where tripId = ?")) {
+            preStmt.setLong(1, tripId);
+            try(ResultSet resultSet = preStmt.executeQuery()){
+                while(resultSet.next()){
+                    Long id = resultSet.getLong("ID");
+                    String clientFirstName = resultSet.getString("clientFirstName");
+                    String clientLastName = resultSet.getString("clientLastName");
+                    Trip trip = findOne(tripId);
+                    Integer nrSeats = resultSet.getInt("numberSeats");
+
+                    Booking book = new Booking(trip, nrSeats, clientFirstName, clientLastName);
+                    book.setID(id);
+
+                    result.add(book);
+                }
+            }
+        }
+        catch (SQLException e){
+            logger.error(e);
+        }
+        return result;
     }
 }

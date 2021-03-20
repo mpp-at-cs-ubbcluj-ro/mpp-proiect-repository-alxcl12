@@ -5,7 +5,6 @@
 package service;
 import model.Admin;
 import model.Booking;
-import model.Client;
 import model.Trip;
 import repository.*;
 import utils.Observable;
@@ -13,6 +12,7 @@ import utils.Observer;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Service class for the application
@@ -21,48 +21,49 @@ public class Service implements Observable {
     RepositoryTrip repoTrip;
     RepositoryAdmin repoAdmins;
     RepositoryBooking repoBooking;
-    RepositoryClient repoClient;
 
     List<Admin> LoggedInAdmins;
 
     public Service(RepositoryTrip repoTrip, RepositoryAdmin repoAdmins, RepositoryBooking
-            repoBooking, RepositoryClient repoClient, List<Admin> loggedInAdmins) {
+            repoBooking, List<Admin> loggedInAdmins) {
         this.repoTrip = repoTrip;
         this.repoAdmins = repoAdmins;
         this.repoBooking = repoBooking;
-        this.repoClient = repoClient;
         LoggedInAdmins = loggedInAdmins;
     }
 
-    public void Login(String Username, String Password){
+    public Iterable<Trip> getAllTrips(){
 
+        return repoTrip.findAll();
     }
 
-    public Trip Search(LocalDateTime DepTime, String Destination){
+    public Iterable<Booking> getBookingsForTrip(Long tripId){
 
-        return null;
+        return repoTrip.findBookingsForTrip(tripId);
     }
 
-    public void Book(String FirstName, String LastName, Integer NrOfSeats){
+    public void addBooking(Long tripId, String firstName, String lastName, int seats){
+        Trip trip = repoTrip.findOne(tripId);
 
+        Booking booking = new Booking(trip, seats, firstName, lastName);
+
+        repoBooking.save(booking);
+        trip.setFreeSeats(trip.getFreeSeats() - seats);
+        repoTrip.update(trip);
     }
 
-    public void Logout(){
+    @Override
+    public void addObserver(Observer e) {
 
     }
 
     @Override
-    public void AddObserver(Observer e) {
+    public void removeObserver(Observer e) {
 
     }
 
     @Override
-    public void RemoveObserver(Observer e) {
-
-    }
-
-    @Override
-    public void NotifyObservers() {
+    public void notifyObservers() {
 
     }
 }

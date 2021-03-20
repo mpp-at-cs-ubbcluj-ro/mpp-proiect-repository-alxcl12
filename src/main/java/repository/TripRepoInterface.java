@@ -4,6 +4,7 @@
  */
 package repository;
 
+import model.Booking;
 import model.Trip;
 
 /**
@@ -11,4 +12,5 @@ import model.Trip;
  */
 public interface TripRepoInterface extends Repository<Long, Trip> {
 
+    Iterable<Booking> findBookingsForTrip(Long tripId);
 }

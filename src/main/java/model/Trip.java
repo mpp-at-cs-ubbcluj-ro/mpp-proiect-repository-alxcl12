@@ -4,6 +4,7 @@
  */
 package model;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Class used to model a trip
@@ -13,6 +14,7 @@ public class Trip extends Entity<Long> {
     private String destination;
     private LocalDateTime departureTime;
     private Integer freeSeats;
+    private String dateFormat;
 
     public static Integer defaultFreeSeats = 18;
 
@@ -21,6 +23,8 @@ public class Trip extends Entity<Long> {
         this.destination = destination;
         this.departureTime = departureTime;
         this.freeSeats = freeSeats;
+
+        dateFormat = departureTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd  hh:mm"));
     }
 
     public String getSource() {
@@ -45,6 +49,7 @@ public class Trip extends Entity<Long> {
 
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
+        dateFormat = departureTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd  hh:mm"));
     }
 
     public Integer getFreeSeats() {
@@ -53,6 +58,14 @@ public class Trip extends Entity<Long> {
 
     public void setFreeSeats(Integer freeSeats) {
         this.freeSeats = freeSeats;
+    }
+
+    public String getDateFormat() {
+        return dateFormat;
+    }
+
+    public void setDateFormat(String dateFormat) {
+        this.dateFormat = dateFormat;
     }
 
     @Override

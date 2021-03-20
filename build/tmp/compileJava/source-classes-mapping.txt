@@ -1,58 +1,51 @@
-model/Booking.java
- model.Booking
-utils/Observable.java
- utils.Observable
-model/Admin.java
- model.Admin
+model/validators/BookingValidator.java
+ model.validators.BookingValidator
+Main.java
+ Main
+repository/AdminRepoInterface.java
+ repository.AdminRepoInterface
 model/Entity.java
  model.Entity
-service/Service.java
- service.Service
+model/validators/ValidationException.java
+ model.validators.ValidationException
 utils/Observer.java
  utils.Observer
 model/validators/AdminValidator.java
  model.validators.AdminValidator
-model/validators/TripValidator.java
- model.validators.TripValidator
-model/validators/BookingValidator.java
- model.validators.BookingValidator
+utils/Observable.java
+ utils.Observable
+model/validators/Validator.java
+ model.validators.Validator
 repository/Repository.java
  repository.Repository
 repository/JdbcUtil.java
  repository.JdbcUtil
-Main.java
- Main
-repository/ClientRepoInterface.java
- repository.ClientRepoInterface
-repository/RepositoryTrip.java
- repository.RepositoryTrip
-model/Trip.java
- model.Trip
 repository/BookingRepoInterface.java
  repository.BookingRepoInterface
-repository/TripRepoInterface.java
- repository.TripRepoInterface
-model/Client.java
- model.Client
-model/validators/ClientValidator.java
- model.validators.ClientValidator
 repository/RepositoryBooking.java
  repository.RepositoryBooking
-repository/RepositoryClient.java
- repository.RepositoryClient
-model/validators/Validator.java
- model.validators.Validator
-model/validators/ValidationException.java
- model.validators.ValidationException
+model/Trip.java
+ model.Trip
+model/validators/TripValidator.java
+ model.validators.TripValidator
+repository/TripRepoInterface.java
+ repository.TripRepoInterface
+model/Admin.java
+ model.Admin
+repository/RepositoryAdmin.java
+ repository.RepositoryAdmin
+model/Booking.java
+ model.Booking
 controller/LoginController.java
  controller.LoginController
-repository/AdminRepoInterface.java
- repository.AdminRepoInterface
+service/Service.java
+ service.Service
+repository/RepositoryTrip.java
+ repository.RepositoryTrip
 ui/GUI.java
  ui.GUI
 controller/MainViewController.java
  controller.MainViewController
+ controller.MainViewController$1
 controller/LoginManager.java
  controller.LoginManager
-repository/RepositoryAdmin.java
- repository.RepositoryAdmin

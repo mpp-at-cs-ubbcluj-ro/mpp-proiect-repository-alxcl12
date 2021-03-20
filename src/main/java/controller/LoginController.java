@@ -12,10 +12,10 @@ import repository.AdminRepoInterface;
 import service.Service;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 public class LoginController {
     AdminRepoInterface userRepo;
-    Service service;
 
     @FXML
     TextField emailTextField;
@@ -34,10 +34,19 @@ public class LoginController {
      */
     public void initManager(final LoginManager loginManager){
         loginButton.setOnAction(event -> {
-            String email = emailTextField.getText();
+            String username = emailTextField.getText();
             String passwd = passwordTextField.getText();
 
-            Admin admin = null;// = userRepo.findOne();
+            Admin admin = null;
+            try {
+                admin = userRepo.authenticateAdmin(username, passwd);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+
+            if(admin == null){
+                return;
+            }
 
             try {
                 //tell login manager to open main window for this user and close login window
@@ -51,11 +60,9 @@ public class LoginController {
     /**
      * Sets parameters for login controller
      * @param userRepo database repository for users
-     * @param service service of application
      */
-    public void setService(AdminRepoInterface userRepo, Service service){
+    public void setService(AdminRepoInterface userRepo){
         this.userRepo = userRepo;
-        this.service = service;
     }
 
 }

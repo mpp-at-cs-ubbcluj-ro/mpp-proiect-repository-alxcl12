@@ -8,22 +8,20 @@ package model;
  * Classed used to model a booking for one client and one trip
  */
 public class Booking extends Entity<Long> {
-    private Client client;
     private Trip trip;
     private Integer nrSeats;
+    private String clientFirstName;
+    private String clientLastName;
+    private String clientDisplayName;
+    private int snek;
 
-    public Booking(Client client, Trip trip, Integer nrSeats) {
-        this.client = client;
+    public Booking(Trip trip, Integer nrSeats, String firstName, String lastName) {
         this.trip = trip;
         this.nrSeats = nrSeats;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+        this.clientFirstName = firstName;
+        this.clientLastName = lastName;
+        this.clientDisplayName = firstName + " " + lastName;
+        snek = 0;
     }
 
     public Trip getTrip() {
@@ -42,12 +40,46 @@ public class Booking extends Entity<Long> {
         this.nrSeats = nrSeats;
     }
 
+    public String getClientFirstName() {
+        return clientFirstName;
+    }
+
+    public void setClientFirstName(String clientFirstName) {
+        this.clientFirstName = clientFirstName;
+    }
+
+    public String getClientLastName() {
+        return clientLastName;
+    }
+
+    public void setClientLastName(String clientLastName) {
+        this.clientLastName = clientLastName;
+    }
+
+    public String getClientDisplayName() {
+        return clientDisplayName;
+    }
+
+    public void setClientDisplayName(String clientDisplayName) {
+        this.clientDisplayName = clientDisplayName;
+    }
+
+    public int getSnek() {
+        return snek;
+    }
+
+    public void setSnek(int snek) {
+        this.snek = snek;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
-                "client=" + client +
-                ", trip=" + trip +
+                "trip=" + trip +
                 ", nrSeats=" + nrSeats +
+                ", clientFirstName='" + clientFirstName + '\'' +
+                ", clientLastName='" + clientLastName + '\'' +
+                ", clientDisplayName='" + clientDisplayName + '\'' +
                 '}';
     }
 }

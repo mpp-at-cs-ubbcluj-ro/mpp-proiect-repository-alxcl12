@@ -41,15 +41,15 @@
                     <children>
                         <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <tabs>
-                                <Tab fx:id="myPageTab" onSelectionChanged="#handleSelectionChanged" text="Search">
+                                <Tab fx:id="myPageTab" text="Search">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField layoutX="21.0" layoutY="127.0" />
-                                    <DatePicker layoutX="21.0" layoutY="203.0" />
+                                    <TextField fx:id="sourceTextField" layoutX="21.0" layoutY="127.0" />
+                                    <DatePicker fx:id="datePicker" layoutX="21.0" layoutY="203.0" />
                                     <Label layoutX="21.0" layoutY="110.0" prefHeight="17.0" prefWidth="130.0" text="Source:" />
                                     <Label layoutX="21.0" layoutY="186.0" prefHeight="17.0" prefWidth="152.0" text="Date:" />
-                                    <TableView layoutX="297.0" layoutY="41.0" prefHeight="700.0" prefWidth="454.0">
+                                    <TableView fx:id="tableViewPassenger" layoutX="297.0" layoutY="41.0" prefHeight="700.0" prefWidth="454.0">
                                       <columns>
                                         <TableColumn fx:id="tableColumnSeatNumber" prefWidth="75.0" text="Seat Number" />
                                         <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Name of client" />
@@ -58,22 +58,22 @@
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                        </columnResizePolicy>
                                     </TableView>
-                                    <Button layoutX="71.0" layoutY="267.0" mnemonicParsing="false" text="Filter" />
+                                    <Button fx:id="filterButton" layoutX="71.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleFilter" text="Filter" />
                                  </children>
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab fx:id="friendRequestTab" onSelectionChanged="#handleSelectionChanged" text="Booking">
+                                <Tab fx:id="friendRequestTab" text="Booking">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TextField layoutX="33.0" layoutY="80.0" />
-                                    <TextField layoutX="33.0" layoutY="132.0" />
-                                    <TextField layoutX="33.0" layoutY="186.0" />
+                                    <TextField fx:id="firstNameField" layoutX="33.0" layoutY="80.0" />
+                                    <TextField fx:id="lastNameField" layoutX="33.0" layoutY="132.0" />
+                                    <TextField fx:id="seatsField" layoutX="33.0" layoutY="186.0" />
                                     <Label layoutX="33.0" layoutY="63.0" text="First name: " />
                                     <Label layoutX="33.0" layoutY="115.0" text="Last name: " />
                                     <Label layoutX="33.0" layoutY="169.0" text="Nr. of seats: " />
-                                    <Button layoutX="82.0" layoutY="239.0" mnemonicParsing="false" text="Book" />
+                                    <Button layoutX="82.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleBook" text="Book" />
                                  </children>
                                         </AnchorPane>
                                     </content>

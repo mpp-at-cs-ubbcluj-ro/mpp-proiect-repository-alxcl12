@@ -5,7 +5,6 @@
 package repository;
 
 import model.Booking;
-import model.Client;
 import model.Trip;
 
 /**
@@ -13,6 +12,4 @@ import model.Trip;
  */
 public interface BookingRepoInterface extends Repository<Long, Booking> {
     Trip findOneTrip(Long tripId);
-
-    Client findOneClient(Long clientId);
 }

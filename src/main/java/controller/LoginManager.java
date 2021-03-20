@@ -58,7 +58,7 @@ public class LoginManager {
             scene.setRoot((Parent) loginLoader.load());
 
             LoginController loginController = loginLoader.getController();
-            loginController.setService(userRepo, service);
+            loginController.setService(userRepo);
             loginController.initManager(this);
         }
         catch (IOException e){
@@ -73,7 +73,7 @@ public class LoginManager {
     private void showMainView(Long sessionID){
         try {
             FXMLLoader mainLoader = new FXMLLoader();
-            mainLoader.setLocation(getClass().getResource("/views/mainWindowNewView.fxml"));
+            mainLoader.setLocation(getClass().getResource("/views/mainWindowView.fxml"));
 
             scene.setRoot((Parent) mainLoader.load());
 

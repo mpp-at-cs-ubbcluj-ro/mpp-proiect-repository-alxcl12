@@ -9,69 +9,53 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import repository.AdminRepoInterface;
+import model.Admin;
+import model.validators.AdminValidator;
+import model.validators.BookingValidator;
+import model.validators.TripValidator;
+import repository.*;
 import service.Service;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public class GUI extends Application {
-    AdminRepoInterface userRepo;
+    RepositoryAdmin adminRepo;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        Validator<User> userValidator = new UserValidator();
-//        FriendshipValidator friendshipValidator = new FriendshipValidator();
-//        FriendRequestValidator friendRequestValidator = new FriendRequestValidator();
-//        MessageValidator messageValidator = new MessageValidator();
-//        EventValidator eventValidator = new EventValidator();
-//
-//        userRepo = new UserDatabase(
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.url"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.username"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.password"),
-//                userValidator);
-//
-//        FriendshipDatabase databaseFriendship = new FriendshipDatabase(
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.url"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.username"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.password"),
-//                friendshipValidator);
-//
-//        FriendRequestDatabase databaseFriendRequest = new FriendRequestDatabase(
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.url"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.username"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.password"),
-//                friendRequestValidator);
-//
-//        MessagesDatabase databaseMessages = new MessagesDatabase(
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.url"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.username"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.password"),
-//                messageValidator);
-//        EventDatabase databaseEvent = new EventDatabase(
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.url"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.username"),
-//                ApplicationContext.getPROPERTIES().getProperty("database.socialnetwork.password"),
-//                eventValidator
-//        );
-//
-//
-//        Service service = new Service(userRepo, databaseFriendship, databaseFriendRequest, databaseMessages, databaseEvent);
-//        service.setPageSizeNonFriends(25);
-//        service.setPageSizeFriends(25);
-//        service.setPageSizeMes(25);
-//        service.setPageSizeReq(25);
-//
-//        //service.bigPopulateForA();
+        AdminValidator adminValidator = new AdminValidator();
+        TripValidator tripValidator = new TripValidator();
+        BookingValidator bookingValidator = new BookingValidator();
+
+
+        Properties props = new Properties();
+        try {
+            props.load(new FileReader("bd.config"));
+        } catch (IOException e) {
+            System.out.println("Cannot find bd.config "+ e);
+        }
+
+        adminRepo = new RepositoryAdmin(props, adminValidator);
+
+        RepositoryBooking bookingRepo = new RepositoryBooking(props, bookingValidator);
+
+        RepositoryTrip tripRepository = new RepositoryTrip(props, tripValidator);
+
+        List<Admin> admins = new ArrayList<Admin>();
+
+
+        Service service = new Service(tripRepository, adminRepo, bookingRepo, admins);
 
         Scene scene = new Scene(new StackPane());
-        Service service = null;
 
-        LoginManager loginManager = new LoginManager(scene, userRepo, service);
+        LoginManager loginManager = new LoginManager(scene, adminRepo, service);
         loginManager.showLoginScreen();
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("socialnect");
         primaryStage.show();
     }
 

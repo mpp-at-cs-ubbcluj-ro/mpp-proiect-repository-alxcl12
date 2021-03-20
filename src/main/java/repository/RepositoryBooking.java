@@ -5,7 +5,6 @@
 package repository;
 
 import model.Booking;
-import model.Client;
 import model.Trip;
 import model.validators.BookingValidator;
 import model.validators.ValidationException;
@@ -25,7 +24,6 @@ import java.util.Properties;
  */
 public class RepositoryBooking implements BookingRepoInterface{
     BookingValidator validator;
-
     private JdbcUtil dbUtils;
 
     private static final Logger logger = LogManager.getLogger();
@@ -48,11 +46,12 @@ public class RepositoryBooking implements BookingRepoInterface{
             try (ResultSet result = preStmt.executeQuery()){
                 if (result.next()){
                     Long id = result.getLong("ID");
-                    Client client = findOneClient(result.getLong("clientId"));
+                    String clientFirstName = result.getString("clientFirstName");
+                    String clientLastName = result.getString("clientLastName");
                     Trip trip = findOneTrip(result.getLong("tripId"));
                     Integer nrSeats = result.getInt("numberSeats");
 
-                    booking = new Booking(client, trip, nrSeats);
+                    booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
                     booking.setID(id);
                 }
             }
@@ -75,11 +74,12 @@ public class RepositoryBooking implements BookingRepoInterface{
             try (ResultSet result = preStmt.executeQuery()){
                 while (result.next()){
                     Long id = result.getLong("ID");
-                    Client client = findOneClient(result.getLong("clientId"));
+                    String clientFirstName = result.getString("clientFirstName");
+                    String clientLastName = result.getString("clientLastName");
                     Trip trip = findOneTrip(result.getLong("tripId"));
                     Integer nrSeats = result.getInt("numberSeats");
 
-                    Booking booking = new Booking(client, trip, nrSeats);
+                    Booking booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
                     booking.setID(id);
 
                     bookings.add(booking);
@@ -107,12 +107,13 @@ public class RepositoryBooking implements BookingRepoInterface{
             return;
         }
 
-        try(PreparedStatement preStmt = con.prepareStatement("insert into Bookings (clientId, tripId, numberSeats)" +
-                " values (?,?,?)")){
+        try(PreparedStatement preStmt = con.prepareStatement("insert into Bookings (tripId, numberSeats, " +
+                "clientFirstName, clientLastName) values (?,?,?,?)")){
 
-            preStmt.setLong(1, entity.getClient().getID());
-            preStmt.setLong(2, entity.getTrip().getID());
-            preStmt.setInt(3, entity.getNrSeats());
+            preStmt.setLong(1, entity.getTrip().getID());
+            preStmt.setInt(2, entity.getNrSeats());
+            preStmt.setString(3, entity.getClientFirstName());
+            preStmt.setString(4, entity.getClientLastName());
 
             int result = preStmt.executeUpdate();
 
@@ -190,31 +191,5 @@ public class RepositoryBooking implements BookingRepoInterface{
         }
         logger.traceExit();
         return trip;
-    }
-
-    @Override
-    public Client findOneClient(Long clientId) {
-        logger.traceEntry();
-        Connection con = dbUtils.getConnection();
-
-        Client client = null;
-        try (PreparedStatement preStmt = con.prepareStatement("select * from Clients where ID=?")){
-            preStmt.setLong(1, clientId);
-            try (ResultSet result = preStmt.executeQuery()){
-                if (result.next()){
-                    Long id = result.getLong("ID");
-                    String firstName = result.getString("firstName");
-                    String lastName = result.getString("lastName");
-
-                    client = new Client(firstName, lastName);
-                    client.setID(id);
-                }
-            }
-        }
-        catch (SQLException e){
-            logger.error(e);
-        }
-        logger.traceExit();
-        return client;
     }
 }

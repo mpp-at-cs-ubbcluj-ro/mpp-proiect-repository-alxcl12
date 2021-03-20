@@ -4,8 +4,8 @@ package utils;/*
  */
 
 public interface Observable {
-    void AddObserver(Observer e);
-    void RemoveObserver(Observer e);
-    void NotifyObservers();
+    void addObserver(Observer e);
+    void removeObserver(Observer e);
+    void notifyObservers();
 }
 
