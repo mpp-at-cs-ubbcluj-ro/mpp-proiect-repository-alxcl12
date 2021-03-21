@@ -1,6 +1,7 @@
 ﻿using Lab2C.Repository;
 using Lab2C.Model;
 using System.Collections.Generic;
+using System;
 
 namespace Lab2C.Service
 {
@@ -52,6 +53,24 @@ namespace Lab2C.Service
             trip.FreeSeats -= seats;
 
             tripRepo.Update(trip);
+        }
+
+        public IEnumerable<Trip> GetTripsBySourceAndDate(string source, DateTime date)
+        {
+            var res = tripRepo.FindTripsBySource(source);
+            IList<Trip> result = new List<Trip>();
+
+            //filer by data when data is fixed
+            foreach(Trip tr in res)
+            {
+                if(tr.DepartureTime.Day == date.Day && tr.DepartureTime.Year == date.Year && tr.DepartureTime.Month == date.Month)
+                {
+                    result.Add(tr);
+                }
+            }
+
+
+            return result;
         }
     }
 }

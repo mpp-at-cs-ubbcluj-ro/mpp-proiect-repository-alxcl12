@@ -41,10 +41,10 @@ namespace Lab2C.Repository
                     {
                         var source = dataR.GetString(1);
                         var destination = dataR.GetString(2);
-                        //var depTime = dataR.GetDateTime(3);
+                        var depTime = dataR.GetDateTime(3);
                         var freeSeats = dataR.GetInt32(4);
 
-                        var trip = new Trip(source, destination, DateTime.Now, freeSeats);
+                        var trip = new Trip(source, destination, depTime, freeSeats);
                         trip.Id = id;
                         
                         Logger.InfoFormat("Exiting FindOne with value {0}", trip);
@@ -76,11 +76,11 @@ namespace Lab2C.Repository
                         var source = dataR.GetString(1);
                         var destination = dataR.GetString(2);
 
-                        //var time = dataR.GetDateTime(3);
+                        var time = dataR.GetDateTime(3);
 
                         var freeSeats = dataR.GetInt32(4);
 
-                        var trip = new Trip(source, destination, DateTime.Now, freeSeats);
+                        var trip = new Trip(source, destination, time, freeSeats);
                         trip.Id = id;
                         
                         trips.Add(trip);
@@ -229,6 +229,43 @@ namespace Lab2C.Repository
             Logger.Info("Exiting FindAll");
 
             return bookings;
+        }
+
+
+        public IEnumerable<Trip> FindTripsBySource(string source)
+        {
+            var con = DatabaseUtils.GetConnection();
+
+            IList<Trip> trips = new List<Trip>();
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "select * from Trips where sourceCity=@city";
+                var paramId = comm.CreateParameter();
+                paramId.ParameterName = "@city";
+                paramId.Value = source;
+                comm.Parameters.Add(paramId);
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    while (dataR.Read())
+                    {
+                        var id = dataR.GetInt64(0);
+                        var destination = dataR.GetString(2);
+
+                        var time = dataR.GetDateTime(3);
+
+                        var freeSeats = dataR.GetInt32(4);
+
+                        var trip = new Trip(source, destination, time, freeSeats);
+                        trip.Id = id;
+
+                        trips.Add(trip);
+                    }
+                }
+            }
+            Logger.Info("Exiting FindAll");
+
+            return trips;
         }
     }
 }

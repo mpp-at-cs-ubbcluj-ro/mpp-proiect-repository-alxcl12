@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Lab2C.Service;
 using Lab2C.Model.Validators;
 using Lab2C.Repository;
+using Lab2C.Model;
 
 namespace Lab2C
 {
@@ -36,6 +37,9 @@ namespace Lab2C
 
             logonForm.Set(service, mainWindowForm);
             mainWindowForm.Set(service, logonForm);
+
+            //Trip trip = new Trip("Milano", "Londra", DateTime.Now, 18);
+            //tripRepository.Save(trip);
 
             Application.Run(logonForm);
         }

@@ -7,7 +7,7 @@
     {
         public void Validate(Trip element)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

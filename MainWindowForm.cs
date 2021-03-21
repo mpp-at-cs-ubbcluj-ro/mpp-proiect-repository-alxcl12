@@ -91,6 +91,26 @@ namespace Lab2C
             textBoxFirst.Clear();
             textBoxLast.Clear();
             textBoxSeats.Clear();
+
+            LoadData();
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+            string source = textBoxSource.Text;
+            DateTime date = dateTimePicker.Value;
+
+            var toFill = service.GetTripsBySourceAndDate(source, date);
+
+            dataGridTrips.DataSource = toFill;
+
+            textBoxSource.Clear();
+
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

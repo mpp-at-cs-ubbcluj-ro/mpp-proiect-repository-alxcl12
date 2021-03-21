@@ -9,5 +9,7 @@ namespace Lab2C.Repository
     public interface ITripRepo: IRepository<long, Trip>
     {
         IEnumerable<Booking> FindBookingsForTrip(long tripId);
+
+        IEnumerable<Trip> FindTripsBySource(string source);
     }
 }
