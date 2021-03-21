@@ -20,6 +20,7 @@ import service.Service;
 import utils.Observer;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -101,7 +102,7 @@ public class MainViewController implements Observer {
                 TableRow<Booking> row = rowProperty.get();
                 if (row != null) {
                     int rowIndex = row.getIndex() + 1;
-                    if (rowIndex < row.getTableView().getItems().size()) {
+                    if (rowIndex <= row.getTableView().getItems().size()) {
                         return Integer.toString(rowIndex);
                     }
                 }
@@ -123,7 +124,8 @@ public class MainViewController implements Observer {
                 List<Booking> bookingList = StreamSupport.stream(bookings.spliterator(), false)
                         .collect(Collectors.toList());
 
-                for(int i=0;i<18;i++){
+                int maxi = 18;
+                for(int i=0;i<maxi;i++){
                     if(i>=bookingList.size()){
                         Booking book = new Booking(null, 0, "-", null);
                         book.setClientDisplayName("-");
@@ -131,9 +133,11 @@ public class MainViewController implements Observer {
                         modelBooking.add(book);
                     }
                     else {
-                        for (int j = 0; j < bookingList.get(i).getNrSeats(); j++) {
+                        int j = 0;
+                        for (j = 0; j < bookingList.get(i).getNrSeats(); j++) {
                             modelBooking.add(bookingList.get(i));
                         }
+                        maxi-=j;
                     }
                 }
             }
@@ -164,8 +168,21 @@ public class MainViewController implements Observer {
     }
 
     public void handleFilter(){
+        String source = sourceTextField.getText();
+        LocalDate date = datePicker.getValue();
 
+        Iterable<Trip> result = service.getTripsBySourceAndDate(source, date.atStartOfDay());
+
+        List<Trip> tripList = StreamSupport.stream(result.spliterator(), false)
+                .collect(Collectors.toList());
+
+        modelTrip.setAll(tripList);
     }
+
+    public void handleReset(){
+        initModel();
+    }
+
 
     @Override
     public void update() {

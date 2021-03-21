@@ -11,6 +11,9 @@ import utils.Observable;
 import utils.Observer;
 
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalUnit;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -50,6 +53,20 @@ public class Service implements Observable {
         repoBooking.save(booking);
         trip.setFreeSeats(trip.getFreeSeats() - seats);
         repoTrip.update(trip);
+    }
+
+    public Iterable<Trip> getTripsBySourceAndDate(String source, LocalDateTime date){
+        Iterable<Trip> trips = repoTrip.findTripsBySource(source);
+
+        HashSet<Trip> result = new HashSet<>();
+        trips.forEach(x->{
+            if(date.getDayOfMonth() == x.getDepartureTime().getDayOfMonth() && date.getMonth() == x.getDepartureTime().getMonth()
+            && date.getYear() == x.getDepartureTime().getYear()){
+                result.add(x);
+            }
+        });
+
+        return result;
     }
 
     @Override

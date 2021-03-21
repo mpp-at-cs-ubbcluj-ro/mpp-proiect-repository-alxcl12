@@ -1,7 +1,7 @@
-model/validators/BookingValidator.java
- model.validators.BookingValidator
-Main.java
- Main
+model/Booking.java
+ model.Booking
+model/validators/Validator.java
+ model.validators.Validator
 repository/AdminRepoInterface.java
  repository.AdminRepoInterface
 model/Entity.java
@@ -14,28 +14,28 @@ model/validators/AdminValidator.java
  model.validators.AdminValidator
 utils/Observable.java
  utils.Observable
-model/validators/Validator.java
- model.validators.Validator
+model/validators/BookingValidator.java
+ model.validators.BookingValidator
 repository/Repository.java
  repository.Repository
 repository/JdbcUtil.java
  repository.JdbcUtil
 repository/BookingRepoInterface.java
  repository.BookingRepoInterface
-repository/RepositoryBooking.java
- repository.RepositoryBooking
-model/Trip.java
- model.Trip
 model/validators/TripValidator.java
  model.validators.TripValidator
+model/Trip.java
+ model.Trip
+repository/RepositoryBooking.java
+ repository.RepositoryBooking
 repository/TripRepoInterface.java
  repository.TripRepoInterface
 model/Admin.java
  model.Admin
 repository/RepositoryAdmin.java
  repository.RepositoryAdmin
-model/Booking.java
- model.Booking
+controller/LoginManager.java
+ controller.LoginManager
 controller/LoginController.java
  controller.LoginController
 service/Service.java
@@ -47,5 +47,5 @@ ui/GUI.java
 controller/MainViewController.java
  controller.MainViewController
  controller.MainViewController$1
-controller/LoginManager.java
- controller.LoginManager
+Main.java
+ Main

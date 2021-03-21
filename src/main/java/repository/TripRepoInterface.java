@@ -13,4 +13,6 @@ import model.Trip;
 public interface TripRepoInterface extends Repository<Long, Trip> {
 
     Iterable<Booking> findBookingsForTrip(Long tripId);
+
+    Iterable<Trip> findTripsBySource(String source);
 }

@@ -59,6 +59,7 @@
                                        </columnResizePolicy>
                                     </TableView>
                                     <Button fx:id="filterButton" layoutX="71.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleFilter" text="Filter" />
+                                    <Button layoutX="66.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
                                  </children>
                                         </AnchorPane>
                                     </content>
@@ -74,6 +75,7 @@
                                     <Label layoutX="33.0" layoutY="115.0" text="Last name: " />
                                     <Label layoutX="33.0" layoutY="169.0" text="Nr. of seats: " />
                                     <Button layoutX="82.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleBook" text="Book" />
+                                    <Label layoutX="212.0" layoutY="136.0" prefHeight="18.0" prefWidth="241.0" text="Select trip, input client data then click Book" />
                                  </children>
                                         </AnchorPane>
                                     </content>

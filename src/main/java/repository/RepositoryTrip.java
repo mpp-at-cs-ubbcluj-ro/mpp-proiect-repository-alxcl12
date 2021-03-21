@@ -148,7 +148,7 @@ public class RepositoryTrip implements TripRepoInterface{
         try(PreparedStatement preStmt = con.prepareStatement("update Trips set departureTime = ?, freeSeats = ? where" +
                 " ID=?")){
 
-            preStmt.setTimestamp(1, Timestamp.valueOf(entity.getDepartureTime()));
+            preStmt.setTimestamp(3, Timestamp.valueOf(entity.getDepartureTime()));
             preStmt.setInt(2, entity.getFreeSeats());
             preStmt.setLong(3, entity.getID());
 
@@ -188,5 +188,36 @@ public class RepositoryTrip implements TripRepoInterface{
             logger.error(e);
         }
         return result;
+    }
+
+    @Override
+    public Iterable<Trip> findTripsBySource(String source) {
+        logger.traceEntry();
+        Connection con = dbUtils.getConnection();
+
+        HashSet<Trip> trips = new HashSet<>();
+
+        try (PreparedStatement preStmt = con.prepareStatement("select * from Trips where sourceCity = ?")){
+            preStmt.setString(1, source);
+            try (ResultSet result = preStmt.executeQuery()){
+                while (result.next()){
+                    Long id = result.getLong("ID");
+                    String sourceCity = result.getString("sourceCity");
+                    String destination = result.getString("destinationCity");
+                    LocalDateTime time = result.getTimestamp(4).toLocalDateTime();
+                    Integer freeSeats = result.getInt("freeSeats");
+
+                    Trip trip = new Trip(sourceCity, destination, time, freeSeats);
+                    trip.setID(id);
+                    trips.add(trip);
+                }
+            }
+        }
+        catch (SQLException e){
+            logger.error(e);
+        }
+        logger.traceExit();
+
+        return trips;
     }
 }
