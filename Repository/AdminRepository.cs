@@ -4,6 +4,8 @@ using Lab2C.Model;
 using Lab2C.Model.Validators;
 using Lab2C.Repository.DbUtils;
 using log4net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Lab2C.Repository
 {
@@ -39,7 +41,8 @@ namespace Lab2C.Repository
                     if (dataR.Read())
                     {
                         var username = dataR.GetString(1);
-                        var passHash = dataR.GetString(2);
+                        byte[] passHash = new byte[64];
+                        dataR.GetBytes(2, 0, passHash, 0, 16);
 
                         var admin = new Admin(username, passHash);
                         admin.Id = id;
@@ -71,7 +74,8 @@ namespace Lab2C.Repository
                     {
                         var id = dataR.GetInt64(0);
                         var username = dataR.GetString(1);
-                        var passHash = dataR.GetString(2);
+                        byte[] passHash = new byte[64];
+                        _ = dataR.GetBytes(2, 0, passHash, 0, 16);
 
                         var admin = new Admin(username, passHash);
                         admin.Id = id;
@@ -99,6 +103,7 @@ namespace Lab2C.Repository
             {
                 Logger.ErrorFormat("Invalid admin {0}", entity);
             }
+
             using (var comm = con.CreateCommand())
             {
                 comm.CommandText = "insert into Admins(username, passwordHash)  values (@user, @pass)";
@@ -150,6 +155,47 @@ namespace Lab2C.Repository
         public void Update(Admin entity)
         {
             throw new System.NotImplementedException();
+        }
+
+        public Admin AuthenticateAdmin(string username, String password)
+        {
+            var con = DbUtils.DatabaseUtils.GetConnection();
+
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "select * from Admins where userName=@id and passwordHash=@hash";
+                var paramId = comm.CreateParameter();
+                paramId.ParameterName = "@id";
+                paramId.Value = username;
+                comm.Parameters.Add(paramId);
+
+                var paramHash = comm.CreateParameter();
+                paramHash.ParameterName = "@hash";
+                paramHash.Value = hash;
+                comm.Parameters.Add(paramHash);
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    if (dataR.Read())
+                    {
+                        var id = dataR.GetInt64(0);
+                        byte[] passHash = new byte[64];
+                        _ = dataR.GetBytes(2, 0, passHash, 0, 16);
+
+                        var admin = new Admin(username, passHash);
+                        admin.Id = id;
+
+                        Logger.InfoFormat("Exiting FindOne with value {0}", admin);
+                        return admin;
+                    }
+                }
+            }
+            Logger.InfoFormat("Exiting FindOne with value {0}", null);
+
+            return null;
         }
     }
 }

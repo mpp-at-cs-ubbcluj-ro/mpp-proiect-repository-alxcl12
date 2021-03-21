@@ -1,23 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Lab2C.Service;
 using Lab2C.Model.Validators;
 using Lab2C.Repository;
-using Lab2C.Repository.DbUtils;
 
 namespace Lab2C
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        [STAThread]
+        static void Main(string[] args)
         {
-            var validator = new ClientValidator();
-            var adminRepository = new ClientRepository(validator);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            var list = adminRepository.FindAll();
-            
-            foreach (var admin in list)
-            {
-                Console.WriteLine(admin);
-            }
+            BookingValidator bookingValidator = new BookingValidator();
+            TripValidator tripValidator = new TripValidator();
+            AdminValidator adminValidator = new AdminValidator();
+
+            AdminRepository adminRepository = new AdminRepository(adminValidator);
+            TripRepository tripRepository = new TripRepository(tripValidator);
+            BookingRepository bookingRepository = new BookingRepository(bookingValidator);
+;
+
+            Service.Service service = new Service.Service(adminRepository, bookingRepository, tripRepository);
+
+            service.GetAllTrips();
+
+            LoginForm logonForm = new LoginForm();
+            MainWindowForm mainWindowForm = new MainWindowForm();
+
+            logonForm.Set(service, mainWindowForm);
+            mainWindowForm.Set(service, logonForm);
+
+            Application.Run(logonForm);
         }
     }
 }

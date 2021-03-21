@@ -7,6 +7,6 @@ namespace Lab2C.Repository
     /// </summary>
     public interface IAdminRepo: IRepository<long, Admin>
     {
-        
+        Admin AuthenticateAdmin(string username, string password);
     }
 }

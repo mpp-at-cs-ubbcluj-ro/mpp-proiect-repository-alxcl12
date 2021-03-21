@@ -4,6 +4,7 @@ using Lab2C.Model;
 using Lab2C.Model.Validators;
 using Lab2C.Repository.DbUtils;
 using log4net;
+using System.Globalization;
 
 namespace Lab2C.Repository
 {
@@ -40,10 +41,10 @@ namespace Lab2C.Repository
                     {
                         var source = dataR.GetString(1);
                         var destination = dataR.GetString(2);
-                        var depTime = dataR.GetDateTime(3);
+                        //var depTime = dataR.GetDateTime(3);
                         var freeSeats = dataR.GetInt32(4);
 
-                        var trip = new Trip(source, destination, depTime, freeSeats);
+                        var trip = new Trip(source, destination, DateTime.Now, freeSeats);
                         trip.Id = id;
                         
                         Logger.InfoFormat("Exiting FindOne with value {0}", trip);
@@ -74,10 +75,12 @@ namespace Lab2C.Repository
                         var id = dataR.GetInt64(0);
                         var source = dataR.GetString(1);
                         var destination = dataR.GetString(2);
-                        var depTime = dataR.GetDateTime(3);
+
+                        //var time = dataR.GetDateTime(3);
+
                         var freeSeats = dataR.GetInt32(4);
 
-                        var trip = new Trip(source, destination, depTime, freeSeats);
+                        var trip = new Trip(source, destination, DateTime.Now, freeSeats);
                         trip.Id = id;
                         
                         trips.Add(trip);
@@ -163,7 +166,69 @@ namespace Lab2C.Repository
 
         public void Update(Trip entity)
         {
-            throw new System.NotImplementedException();
+            Logger.InfoFormat("Entering Update with id of {0}", entity.Id);
+
+            var con = DatabaseUtils.GetConnection();
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "update Trips set freeSeats=@seats where ID=@id";
+                var paramId = comm.CreateParameter();
+                paramId.ParameterName = "@id";
+                paramId.Value = entity.Id;
+                comm.Parameters.Add(paramId);
+
+                var paramS = comm.CreateParameter();
+                paramS.ParameterName = "@seats";
+                paramS.Value = entity.FreeSeats;
+                comm.Parameters.Add(paramS);
+
+                var dataR = comm.ExecuteNonQuery();
+                if (dataR == 0)
+                {
+                    Logger.ErrorFormat("Trip with id {0} not deleted", entity.Id);
+                    throw new Exception("No trip deleted!");
+                }
+            }
+
+            Logger.Info("Exiting Delete");
+        }
+
+        public IEnumerable<Booking> FindBookingsForTrip(long tripId)
+        { 
+            var con = DbUtils.DatabaseUtils.GetConnection();
+
+            IList<Booking> bookings = new List<Booking>();
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "select * from Bookings where tripId=@id";
+                var paramId = comm.CreateParameter();
+                paramId.ParameterName = "@id";
+                paramId.Value = tripId;
+                comm.Parameters.Add(paramId);
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    while (dataR.Read())
+                    {
+                        var id = dataR.GetInt64(0);
+                        var nrSeats = dataR.GetInt32(2);
+                        var clientFirstName = dataR.GetString(3);
+                        var clientLastName = dataR.GetString(4);
+
+                        var trip = FindOne(tripId);
+
+                        if (trip != null)
+                        {
+                            var booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
+                            booking.Id = id;
+                            bookings.Add(booking);
+                        }
+                    }
+                }
+            }
+            Logger.Info("Exiting FindAll");
+
+            return bookings;
         }
     }
 }

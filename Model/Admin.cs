@@ -8,9 +8,9 @@ namespace Lab2C.Model
     public class Admin: Entity<long>
     {
         public String Username { get; set; }
-        public String PasswordHash { get; set; }
+        public byte[] PasswordHash { get; set; }
 
-        public Admin(string username, string passwordHash)
+        public Admin(string username, byte[] passwordHash)
         {
             Username = username;
             PasswordHash = passwordHash;

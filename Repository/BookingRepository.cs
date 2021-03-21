@@ -38,16 +38,16 @@ namespace Lab2C.Repository
                 {
                     if (dataR.Read())
                     {
-                        var clientId = dataR.GetInt64(1);
-                        var tripId = dataR.GetInt64(2);
-                        var nrSeats = dataR.GetInt32(3);
+                        var tripId = dataR.GetInt64(1);
+                        var nrSeats = dataR.GetInt32(2);
+                        var clientFirstName = dataR.GetString(3);
+                        var clientLastName = dataR.GetString(4);
 
                         var trip = FindOneTrip(tripId);
-                        var client = FindOneClient(clientId);
 
-                        if (trip != null && client != null)
+                        if (trip != null)
                         {
-                            var booking = new Booking(client, trip, nrSeats);
+                            var booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
                             booking.Id = id;
                             Logger.InfoFormat("Exiting FindOne with value {0}", booking);
                             return booking;
@@ -76,16 +76,16 @@ namespace Lab2C.Repository
                     while (dataR.Read())
                     {
                         var id = dataR.GetInt64(0);
-                        var clientId = dataR.GetInt64(1);
-                        var tripId = dataR.GetInt64(2);
-                        var nrSeats = dataR.GetInt32(3);
-
-                        var trip = FindOneTrip(tripId);
-                        var client = FindOneClient(clientId);
+                        var tripId = dataR.GetInt64(1);
+                        var nrSeats = dataR.GetInt32(2);
+                        var clientFirstName = dataR.GetString(3);
+                        var clientLastName = dataR.GetString(4);
                         
-                        if (trip != null && client != null)
+                        var trip = FindOneTrip(tripId);
+                        
+                        if (trip != null)
                         {
-                            var booking = new Booking(client, trip, nrSeats);
+                            var booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
                             booking.Id = id;
                             bookings.Add(booking);
                         }
@@ -113,12 +113,7 @@ namespace Lab2C.Repository
             }
             using (var comm = con.CreateCommand())
             {
-                comm.CommandText = "insert into Bookings(clientId, tripId, numberSeats)  values (@client, @trip, @seats)";
-
-                var paramClient = comm.CreateParameter();
-                paramClient.ParameterName = "@client";
-                paramClient.Value = entity.Client.Id;
-                comm.Parameters.Add(paramClient);
+                comm.CommandText = "insert into Bookings(tripId, numberSeats, clientFirstName, clientLastName)  values (@trip, @seats, @first, @last)";
 
                 var paramTrip = comm.CreateParameter();
                 paramTrip.ParameterName = "@trip";
@@ -129,6 +124,16 @@ namespace Lab2C.Repository
                 paramSeats.ParameterName = "@seats";
                 paramSeats.Value = entity.NrSeats;
                 comm.Parameters.Add(paramSeats);
+                
+                var paramClientF = comm.CreateParameter();
+                paramClientF.ParameterName = "@first";
+                paramClientF.Value = entity.ClientFirstName;
+                comm.Parameters.Add(paramClientF);
+                
+                var paramClientL = comm.CreateParameter();
+                paramClientL.ParameterName = "@last";
+                paramClientL.Value = entity.ClientLastName;
+                comm.Parameters.Add(paramClientL);
                 
                 var result = comm.ExecuteNonQuery();
                 if (result == 0)
@@ -204,39 +209,6 @@ namespace Lab2C.Repository
             
             return null;
         }
-
-        public Client FindOneClient(long clientId)
-        {
-            Logger.InfoFormat("Entering FindOne with value {0}", clientId);
-
-            var con = DbUtils.DatabaseUtils.GetConnection();
-
-            using (var comm = con.CreateCommand())
-            {
-                comm.CommandText = "select * from Clients where id=@id";
-                var paramId = comm.CreateParameter();
-                paramId.ParameterName = "@id";
-                paramId.Value = clientId;
-                comm.Parameters.Add(paramId);
-
-                using (var dataR = comm.ExecuteReader())
-                {
-                    if (dataR.Read())
-                    {
-                        var firstName = dataR.GetString(1);
-                        var lastName = dataR.GetString(2);
-
-                        var client = new Client(firstName, lastName);
-                        client.Id = clientId;
-                        
-                        Logger.InfoFormat("Exiting FindOne with value {0}", client);
-                        return client;
-                    }
-                }
-            }
-            Logger.InfoFormat("Exiting FindOne with value {0}", null);
-            
-            return null;
-        }
+        
     }
 }

@@ -4,7 +4,7 @@
     {
         public void Validate(Booking element)
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

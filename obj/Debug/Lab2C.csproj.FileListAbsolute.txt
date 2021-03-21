@@ -19,3 +19,14 @@ C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\Mono.
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\nunit.framework.dll
 C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\nunit.framework.xml
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Reactive.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Reactive.Windows.Forms.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Reactive.xml
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Reactive.Windows.Forms.xml
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C.LoginForm.resources
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C.csproj.GenerateResource.cache
+C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Lab2C#\Lab2C\obj\Debug\Lab2C.MainWindowForm.resources
