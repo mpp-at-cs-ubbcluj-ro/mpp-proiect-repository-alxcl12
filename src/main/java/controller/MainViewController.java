@@ -27,47 +27,47 @@ import java.util.stream.StreamSupport;
 
 
 public class MainViewController implements Observer {
-    Long currentId;
-    Service service;
+    private Long currentId;
+    private Service service;
 
-    ObservableList<Trip> modelTrip = FXCollections.observableArrayList();
-    ObservableList<Booking> modelBooking = FXCollections.observableArrayList();
-
-    @FXML
-    Button logoutButton;
-    @FXML
-    Button filterButton;
+    private ObservableList<Trip> modelTrip = FXCollections.observableArrayList();
+    private ObservableList<Booking> modelBooking = FXCollections.observableArrayList();
 
     @FXML
-    TextField sourceTextField;
+    private Button logoutButton;
     @FXML
-    DatePicker datePicker;
+    private Button filterButton;
 
     @FXML
-    TextField firstNameField;
+    private TextField sourceTextField;
     @FXML
-    TextField lastNameField;
-    @FXML
-    TextField seatsField;
+    private DatePicker datePicker;
 
     @FXML
-    TableColumn<Trip, String> tableColumnSource;
+    private TextField firstNameField;
     @FXML
-    TableColumn<Trip, String> tableColumnDestination;
+    private TextField lastNameField;
     @FXML
-    TableColumn<Trip, String> tableColumnDate;
-    @FXML
-    TableColumn<Trip, String> tableColumnFreeSeats;
+    private TextField seatsField;
 
     @FXML
-    TableColumn<Booking, Integer> tableColumnSeatNumber;
+    private TableColumn<Trip, String> tableColumnSource;
     @FXML
-    TableColumn<Booking, String> tableColumnName;
+    private TableColumn<Trip, String> tableColumnDestination;
+    @FXML
+    private TableColumn<Trip, String> tableColumnDate;
+    @FXML
+    private TableColumn<Trip, String> tableColumnFreeSeats;
 
     @FXML
-    TableView<Trip> tableViewTrips;
+    private TableColumn<Booking, Integer> tableColumnSeatNumber;
     @FXML
-    TableView<Booking> tableViewPassenger;
+    private TableColumn<Booking, String> tableColumnName;
+
+    @FXML
+    private TableView<Trip> tableViewTrips;
+    @FXML
+    private TableView<Booking> tableViewPassenger;
     
     public void initSessionID(final LoginManager loginManager, Long sessionID) {
         this.currentId = sessionID;
@@ -124,20 +124,23 @@ public class MainViewController implements Observer {
                 List<Booking> bookingList = StreamSupport.stream(bookings.spliterator(), false)
                         .collect(Collectors.toList());
 
-                int maxi = 18;
-                for(int i=0;i<maxi;i++){
-                    if(i>=bookingList.size()){
-                        Booking book = new Booking(null, 0, "-", null);
-                        book.setClientDisplayName("-");
+                int k = 1;
 
-                        modelBooking.add(book);
+                for(int i=0;i<18;i++){
+                    if(i >= bookingList.size()){
+                        while(k<=18) {
+                            Booking book = new Booking(null, 0, "-", null);
+                            book.setClientDisplayName("-");
+                            k++;
+                            modelBooking.add(book);
+                        }
+                        break;
                     }
                     else {
-                        int j = 0;
-                        for (j = 0; j < bookingList.get(i).getNrSeats(); j++) {
+                        for (int j = 0; j < bookingList.get(i).getNrSeats(); j++) {
                             modelBooking.add(bookingList.get(i));
+                            k++;
                         }
-                        maxi-=j;
                     }
                 }
             }

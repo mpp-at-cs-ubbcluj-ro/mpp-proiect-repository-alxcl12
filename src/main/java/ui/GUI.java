@@ -41,9 +41,10 @@ public class GUI extends Application {
 
         adminRepo = new RepositoryAdmin(props, adminValidator);
 
-        RepositoryBooking bookingRepo = new RepositoryBooking(props, bookingValidator);
-
         RepositoryTrip tripRepository = new RepositoryTrip(props, tripValidator);
+
+        RepositoryBooking bookingRepo = new RepositoryBooking(props, bookingValidator, tripRepository);
+
 
         List<Admin> admins = new ArrayList<Admin>();
 

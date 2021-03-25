@@ -145,12 +145,11 @@ public class RepositoryTrip implements TripRepoInterface{
         logger.traceEntry("updating trip with id {}", entity.getID());
         Connection con = dbUtils.getConnection();
 
-        try(PreparedStatement preStmt = con.prepareStatement("update Trips set departureTime = ?, freeSeats = ? where" +
+        try(PreparedStatement preStmt = con.prepareStatement("update Trips set freeSeats = ? where" +
                 " ID=?")){
 
-            preStmt.setTimestamp(3, Timestamp.valueOf(entity.getDepartureTime()));
-            preStmt.setInt(2, entity.getFreeSeats());
-            preStmt.setLong(3, entity.getID());
+            preStmt.setInt(1, entity.getFreeSeats());
+            preStmt.setLong(2, entity.getID());
 
             int result = preStmt.executeUpdate();
             logger.trace("updated {} instances", result);

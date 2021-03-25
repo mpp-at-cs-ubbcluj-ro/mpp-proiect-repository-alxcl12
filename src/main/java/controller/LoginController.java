@@ -18,11 +18,11 @@ public class LoginController {
     AdminRepoInterface userRepo;
 
     @FXML
-    TextField emailTextField;
+    private TextField emailTextField;
     @FXML
-    TextField passwordTextField;
+    private TextField passwordTextField;
     @FXML
-    Button loginButton;
+    private Button loginButton;
 
     @FXML
     public void initialize(){}

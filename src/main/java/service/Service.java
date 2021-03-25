@@ -21,9 +21,9 @@ import java.util.Set;
  * Service class for the application
  */
 public class Service implements Observable {
-    RepositoryTrip repoTrip;
-    RepositoryAdmin repoAdmins;
-    RepositoryBooking repoBooking;
+    private TripRepoInterface repoTrip;
+    private AdminRepoInterface repoAdmins;
+    private BookingRepoInterface repoBooking;
 
     List<Admin> LoggedInAdmins;
 

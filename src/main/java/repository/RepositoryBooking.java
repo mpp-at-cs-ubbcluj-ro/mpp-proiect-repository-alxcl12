@@ -23,15 +23,19 @@ import java.util.Properties;
  * Repository used to store bookings
  */
 public class RepositoryBooking implements BookingRepoInterface{
-    BookingValidator validator;
+    private BookingValidator validator;
+
     private JdbcUtil dbUtils;
+
+    private TripRepoInterface repoTrip;
 
     private static final Logger logger = LogManager.getLogger();
 
-    public RepositoryBooking(Properties props, BookingValidator validator){
+    public RepositoryBooking(Properties props, BookingValidator validator, TripRepoInterface repoTrip){
         logger.info("Initializing BookingRepository with properties: {} ", props);
         dbUtils = new JdbcUtil(props);
         this.validator = validator;
+        this.repoTrip = repoTrip;
     }
 
 
@@ -48,7 +52,7 @@ public class RepositoryBooking implements BookingRepoInterface{
                     Long id = result.getLong("ID");
                     String clientFirstName = result.getString("clientFirstName");
                     String clientLastName = result.getString("clientLastName");
-                    Trip trip = findOneTrip(result.getLong("tripId"));
+                    Trip trip = repoTrip.findOne(result.getLong("tripId"));
                     Integer nrSeats = result.getInt("numberSeats");
 
                     booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
@@ -76,7 +80,7 @@ public class RepositoryBooking implements BookingRepoInterface{
                     Long id = result.getLong("ID");
                     String clientFirstName = result.getString("clientFirstName");
                     String clientLastName = result.getString("clientLastName");
-                    Trip trip = findOneTrip(result.getLong("tripId"));
+                    Trip trip = repoTrip.findOne(result.getLong("tripId"));
                     Integer nrSeats = result.getInt("numberSeats");
 
                     Booking booking = new Booking(trip, nrSeats, clientFirstName, clientLastName);
@@ -163,33 +167,5 @@ public class RepositoryBooking implements BookingRepoInterface{
         }
 
         logger.traceExit();
-    }
-
-    @Override
-    public Trip findOneTrip(Long tripId) {
-        logger.traceEntry();
-        Connection con = dbUtils.getConnection();
-
-        Trip trip = null;
-        try (PreparedStatement preStmt = con.prepareStatement("select * from Trips where ID=?")){
-            preStmt.setLong(1, tripId);
-            try (ResultSet result = preStmt.executeQuery()){
-                if (result.next()){
-                    Long id = result.getLong("ID");
-                    String source = result.getString("sourceCity");
-                    String destination = result.getString("destinationCity");
-                    LocalDateTime time = result.getTimestamp(4).toLocalDateTime();
-                    Integer freeSeats = result.getInt("freeSeats");
-
-                    trip = new Trip(source, destination, time, freeSeats);
-                    trip.setID(id);
-                }
-            }
-        }
-        catch (SQLException e){
-            logger.error(e);
-        }
-        logger.traceExit();
-        return trip;
     }
 }

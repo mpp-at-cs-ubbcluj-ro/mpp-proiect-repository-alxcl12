@@ -13,7 +13,6 @@ public class Booking extends Entity<Long> {
     private String clientFirstName;
     private String clientLastName;
     private String clientDisplayName;
-    private int snek;
 
     public Booking(Trip trip, Integer nrSeats, String firstName, String lastName) {
         this.trip = trip;
@@ -21,7 +20,6 @@ public class Booking extends Entity<Long> {
         this.clientFirstName = firstName;
         this.clientLastName = lastName;
         this.clientDisplayName = firstName + " " + lastName;
-        snek = 0;
     }
 
     public Trip getTrip() {
@@ -62,14 +60,6 @@ public class Booking extends Entity<Long> {
 
     public void setClientDisplayName(String clientDisplayName) {
         this.clientDisplayName = clientDisplayName;
-    }
-
-    public int getSnek() {
-        return snek;
-    }
-
-    public void setSnek(int snek) {
-        this.snek = snek;
     }
 
     @Override

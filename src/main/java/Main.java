@@ -42,7 +42,7 @@ public class Main {
 //
 //        TripRepoInterface repo = new RepositoryTrip(props, validator);
 //
-//        Trip trip = new Trip("Bucuresti", "Atena", LocalDateTime.of(2021,4,11,6,20), Trip.defaultFreeSeats);
+//        Trip trip = new Trip("Praga", "Cluj-Napoca", LocalDateTime.of(2021,9,25,7,25), Trip.defaultFreeSeats);
 //
 //        repo.save(trip);
 
