@@ -1,0 +1,3 @@
+public enum ResponseType {
+    OK, ERROR, REFRESH, GET_TRIPS, GET_BOOKINGS, ADD_BOOKING, GET_TRIPS_FILTER
+}

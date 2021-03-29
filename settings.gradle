@@ -1,2 +1,8 @@
 rootProject.name = 'Lab3'
+include 'Model'
+include 'Persistance'
+include 'Services'
+include 'Client'
+include 'Server'
+include 'Networking'
 
