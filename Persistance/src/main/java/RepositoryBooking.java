@@ -12,7 +12,6 @@ import java.util.Properties;
  * Repository used to store bookings
  */
 public class RepositoryBooking implements BookingRepoInterface {
-    private BookingValidator validator;
 
     private JdbcUtil dbUtils;
 
@@ -20,10 +19,9 @@ public class RepositoryBooking implements BookingRepoInterface {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public RepositoryBooking(Properties props, BookingValidator validator, TripRepoInterface repoTrip){
-        logger.info("Initializing BookingRepository with properties: {} ", props);
-        dbUtils = new JdbcUtil(props);
-        this.validator = validator;
+    public RepositoryBooking(TripRepoInterface repoTrip){
+        logger.info("Initializing BookingRepository with properties:  ");
+        dbUtils = new JdbcUtil();
         this.repoTrip = repoTrip;
     }
 
@@ -92,13 +90,6 @@ public class RepositoryBooking implements BookingRepoInterface {
         logger.traceEntry("saving booking {}", entity);
         Connection con = dbUtils.getConnection();
 
-        try {
-            validator.validate(entity);
-        }
-        catch (ValidationException e){
-            logger.error(e);
-            return;
-        }
 
         try(PreparedStatement preStmt = con.prepareStatement("insert into Bookings (tripId, numberSeats, " +
                 "clientFirstName, clientLastName) values (?,?,?,?)")){

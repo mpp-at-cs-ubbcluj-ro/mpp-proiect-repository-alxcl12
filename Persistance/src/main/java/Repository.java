@@ -1,10 +1,3 @@
-/*
- *  @author albua
- *  created on 28/02/2021
- */
-
-
-
 /**
  * Default interface used to store an entity with CRUD operations
  * @param <ID> id of entity to be stored

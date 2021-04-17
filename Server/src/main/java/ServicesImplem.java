@@ -2,6 +2,7 @@
  *  @author albua
  *  created on 25/03/2021
  */
+import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -87,7 +88,7 @@ public class ServicesImplem implements Services {
                         i[0]++;
                     });
                     obs.newTrips(curserez);
-                } catch (ServiceException e) {
+                } catch (ServiceException| RemoteException e) {
                     e.printStackTrace();
                 }
             });

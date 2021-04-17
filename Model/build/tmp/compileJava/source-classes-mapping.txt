@@ -1,5 +1,7 @@
 ValidationException.java
  ValidationException
+Validator.java
+ Validator
 Booking.java
  Booking
 Entity.java
@@ -10,8 +12,6 @@ TripValidator.java
  TripValidator
 AdminValidator.java
  AdminValidator
-Validator.java
- Validator
 BookingValidator.java
  BookingValidator
 Admin.java

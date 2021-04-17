@@ -1,3 +1,5 @@
+JdbcUtil.java
+ JdbcUtil
 AdminRepoInterface.java
  AdminRepoInterface
 TripRepoInterface.java
@@ -12,5 +14,3 @@ RepositoryBooking.java
  RepositoryBooking
 RepositoryTrip.java
  RepositoryTrip
-JdbcUtil.java
- JdbcUtil

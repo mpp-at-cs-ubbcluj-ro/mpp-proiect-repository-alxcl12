@@ -14,16 +14,13 @@ import java.util.Properties;
  * Repository used to store admins
  */
 public class RepositoryAdmin implements AdminRepoInterface {
-    AdminValidator validator;
 
     private JdbcUtil dbUtils;
 
     private static final Logger logger = LogManager.getLogger();
 
-    public RepositoryAdmin(Properties props, AdminValidator validator){
-        logger.info("Initializing AdminRepository with properties: {} ", props);
-        dbUtils = new JdbcUtil(props);
-        this.validator = validator;
+    public RepositoryAdmin(){
+        dbUtils = new JdbcUtil();
     }
 
     @Override
@@ -84,14 +81,6 @@ public class RepositoryAdmin implements AdminRepoInterface {
     public void save(Admin entity) {
         logger.traceEntry("saving admin {}", entity);
         Connection con = dbUtils.getConnection();
-
-        try {
-            validator.validate(entity);
-        }
-        catch (ValidationException e){
-            logger.error(e);
-            return;
-        }
 
         try(PreparedStatement preStmt = con.prepareStatement("insert into Admins (username, passwordHash) values (?,?)")){
 

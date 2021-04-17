@@ -12,27 +12,37 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.*;
 
 
-public class MainViewController implements ObserverNormal {
-    private MainServiceClient service;
+
+public class MainViewController extends UnicastRemoteObject implements Observer, Serializable {
+    private Services service;
 
     private ObservableList<Trip> modelTrip = FXCollections.observableArrayList();
     private ObservableList<Booking> modelBooking = FXCollections.observableArrayList();
 
     private String adminId;
+
+    public MainViewController() throws RemoteException {
+
+    }
 
     public String getAdminId() {
         return adminId;
@@ -42,10 +52,6 @@ public class MainViewController implements ObserverNormal {
         this.adminId = adminId;
     }
 
-    @FXML
-    private Button logoutButton;
-    @FXML
-    private Button filterButton;
 
     @FXML
     private TextField sourceTextField;
@@ -78,10 +84,17 @@ public class MainViewController implements ObserverNormal {
     @FXML
     private TableView<Booking> tableViewPassenger;
 
+    public void setService(Services serv){
+        this.service = serv;
+    }
 
-    public void setService(MainServiceClient service) throws ServiceException {
-        this.service = service;
-        //initModel();
+    public void logToServer(Admin ad){
+        try {
+            service.login(ad, this);
+        }
+        catch (ServiceException e){
+            e.printStackTrace();
+        }
     }
 
     public void initialize(){
@@ -118,8 +131,14 @@ public class MainViewController implements ObserverNormal {
                 modelBooking.clear();
 
                 Trip tripId = tableViewTrips.getSelectionModel().getSelectedItem();
+                System.out.println("ARE ID UL ASTA");
+                System.out.println( tripId.getSource());
                 Booking[] bookings = null;
-                bookings = (Booking[]) service.getBookings(tripId);
+                try {
+                    bookings = service.getBookings(tripId);
+                } catch (ServiceException e) {
+                    e.printStackTrace();
+                }
                 for(int i=0;i<bookings.length;i++){
                     System.out.println(bookings[i]);
                 }
@@ -150,12 +169,11 @@ public class MainViewController implements ObserverNormal {
     }
 
     public void initModel() throws ServiceException {
-        Iterable<Trip> trips = (Iterable<Trip>) service.getAllTrips();
+        Trip[] tr = service.getTrips();
+        List<Trip> trips = new ArrayList<>();
+        Collections.addAll(trips, tr);
 
-        List<Trip> tripList = StreamSupport.stream(trips.spliterator(), false)
-                .collect(Collectors.toList());
-
-        modelTrip.setAll(tripList);
+        modelTrip.setAll(trips);
     }
 
     public void handleBook() throws ServiceException {
@@ -166,7 +184,7 @@ public class MainViewController implements ObserverNormal {
 
         int nrSeats = Integer.parseInt(nrSeatsStr);
 
-        service.addBooking(tripId, firstName, lastName, nrSeats);
+        service.addBooking(tripId.getID(), firstName, lastName, nrSeats);
     }
 
     public void handleFilter() throws ServiceException {
@@ -178,7 +196,6 @@ public class MainViewController implements ObserverNormal {
 
         modelTrip.setAll(Arrays.asList(result));
 
-        initModel();
     }
 
     public void handleReset() throws ServiceException {
@@ -191,12 +208,16 @@ public class MainViewController implements ObserverNormal {
     }
 
     void logout() {
-        service.logout(adminId);
-
+        try {
+            service.logout(adminId);
+        }
+        catch (ServiceException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void update(Object arg) {
+    public void newTrips(Trip[] trips) throws  RemoteException {
         Platform.runLater(()->{
             try {
                 initModel();
@@ -205,6 +226,5 @@ public class MainViewController implements ObserverNormal {
                 e.printStackTrace();
             }
         });
-
     }
 }

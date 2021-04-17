@@ -10,6 +10,7 @@ import java.io.ObjectInputFilter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -192,7 +193,7 @@ public class ServicesRpcProxy implements Services{
             try{
                 client.newTrips(result);
             }
-            catch (ServiceException e){
+            catch (ServiceException| RemoteException e){
                 e.printStackTrace();
             }
         }

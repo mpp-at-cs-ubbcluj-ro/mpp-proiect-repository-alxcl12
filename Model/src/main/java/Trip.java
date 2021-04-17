@@ -3,13 +3,14 @@
  *  created on 28/02/2021
  */
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Class used to model a trip
  */
-public class Trip extends Entity<Long> {
+public class Trip extends Entity<Long> implements Serializable {
     private String source;
     private String destination;
     private LocalDateTime departureTime;

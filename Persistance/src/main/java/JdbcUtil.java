@@ -16,8 +16,8 @@ public class JdbcUtil {
 
     private static final Logger logger= LogManager.getLogger();
 
-    public JdbcUtil(Properties props){
-        jdbcProps=props;
+    public JdbcUtil(){
+
     }
 
     private Connection instance = null;
@@ -26,21 +26,16 @@ public class JdbcUtil {
         logger.traceEntry();
 
         String url = "jdbc:sqlite:C:\\\\Facultate\\\\New\\\\AnulII\\\\SemestrulIV\\\\MPP\\\\Laboratoare\\\\Database\\\\problem4db";
-        String user = jdbcProps.getProperty("jdbc.user");
-        String pass = jdbcProps.getProperty("jdbc.pass");
         logger.info("trying to connect to database ... {}",url);
-        logger.info("user: {}",user);
-        logger.info("pass: {}", pass);
+        logger.info("user: ");
+        logger.info("pass: ");
         Connection con=null;
 
         try {
 
-            if (user!=null && pass!=null) {
-                con = DriverManager.getConnection(url, user, pass);
-            }
-            else {
+
                 con = DriverManager.getConnection(url);
-            }
+
         } catch (SQLException e) {
             logger.error(e);
             System.out.println("Error getting connection " + e);

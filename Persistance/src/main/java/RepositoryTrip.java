@@ -10,16 +10,16 @@ import java.util.Properties;
  * Repository used to store trips
  */
 public class RepositoryTrip implements TripRepoInterface {
-    TripValidator validator;
+
 
     private JdbcUtil dbUtils;
 
     private static final Logger logger = LogManager.getLogger();
 
-    public RepositoryTrip(Properties props, TripValidator validator){
-        logger.info("Initializing TripRepository with properties: {} ", props);
-        dbUtils = new JdbcUtil(props);
-        this.validator = validator;
+    public RepositoryTrip(){
+        logger.info("Initializing TripRepository with properties: ");
+        dbUtils = new JdbcUtil();
+
     }
 
 
@@ -86,13 +86,7 @@ public class RepositoryTrip implements TripRepoInterface {
         logger.traceEntry("saving trip {}", entity);
         Connection con = dbUtils.getConnection();
 
-        try {
-            validator.validate(entity);
-        }
-        catch (ValidationException e){
-            logger.error(e);
-            return;
-        }
+
 
         try(PreparedStatement preStmt = con.prepareStatement("insert into Trips (sourceCity, destinationCity, " +
                 "departureTime, freeSeats) values (?,?,?,?)")){

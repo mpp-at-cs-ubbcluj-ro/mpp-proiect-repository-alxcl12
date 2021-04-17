@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class MainServiceClient implements Observer, Observable{
+public class MainServiceClient implements Observer{
     private Services server;
-    private ArrayList<ObserverNormal> observers = new ArrayList<>();
+
     public MainServiceClient(Services server) {
         this.server = server;
     }
@@ -81,21 +81,11 @@ public class MainServiceClient implements Observer, Observable{
     }
 
 
-    @Override
-    public void addObserver(ObserverNormal o) {
-        observers.add(o);
-    }
 
-    @Override
-    public void notifyAll(Object arg) {
-        observers.forEach(x->{
-            x.update(arg);
-        });
-    }
 
     @Override
     public void newTrips(Trip[] trips) throws ServiceException {
         List<Trip> rez = new ArrayList<>(Arrays.asList(trips));
-        notifyAll(rez);
+
     }
 }

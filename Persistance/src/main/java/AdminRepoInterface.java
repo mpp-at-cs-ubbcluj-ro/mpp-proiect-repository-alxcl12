@@ -1,9 +1,3 @@
-/*
- *  @author albua
- *  created on 04/03/2021
- */
-
-
 import java.security.NoSuchAlgorithmException;
 
 /**

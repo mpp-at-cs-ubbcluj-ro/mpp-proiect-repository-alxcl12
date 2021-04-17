@@ -3,10 +3,12 @@
  *  created on 04/03/2021
  */
 
+import java.io.Serializable;
+
 /**
  * Classed used to model a booking for one client and one trip
  */
-public class Booking extends Entity<Long> {
+public class Booking extends Entity<Long> implements Serializable {
     private Trip trip;
     private Integer nrSeats;
     private String clientFirstName;

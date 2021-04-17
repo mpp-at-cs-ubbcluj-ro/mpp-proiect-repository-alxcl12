@@ -18,7 +18,8 @@ dependencies {
     compile project (':Model')
     compile project (':Services')
     compile project (':Persistance')
-    compile project (':Networking')
+    //compile project (':Networking')
+    compile 'org.springframework:spring-context:5.0.4.RELEASE'
 }
 
 test {

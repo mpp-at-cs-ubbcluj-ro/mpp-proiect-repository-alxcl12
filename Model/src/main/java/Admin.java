@@ -3,10 +3,12 @@
  *  created on 28/02/2021
  */
 
+import java.io.Serializable;
+
 /**
  * Class used to model an administrator to the application
  */
-public class Admin  extends Entity<Long>{
+public class Admin  extends Entity<Long> implements Serializable {
     private String username;
     private byte[] passwordHash;
     private String passwordString;
