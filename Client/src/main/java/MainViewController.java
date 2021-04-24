@@ -174,11 +174,12 @@ public class MainViewController implements ObserverNormal {
         LocalDate date = datePicker.getValue();
 
         Trip trip = new Trip(source, "a", date.atStartOfDay(), 2);
+        trip.setID(1L);
         Trip[] result = (Trip[]) service.getTripsFiltered(trip);
 
         modelTrip.setAll(Arrays.asList(result));
 
-        initModel();
+        //initModel();
     }
 
     public void handleReset() throws ServiceException {

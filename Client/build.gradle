@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-mainClassName='StartRpcClient'
+mainClassName='StartProtoClient'
 
 javafx{
     modules = ['javafx.controls' , 'javafx.fxml']

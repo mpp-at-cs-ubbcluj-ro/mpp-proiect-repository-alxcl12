@@ -1,0 +1,54 @@
+syntax="proto3";
+//package chat.protocol;
+
+//option java_package = "chat.network.protobuffprotocol";
+option java_outer_classname = "Protobufs";
+//option java_multiple_files=true;
+
+message Admin{
+  string username=1;
+  string passwd=2;
+}
+
+message Booking{
+  string firstName = 1;
+  string lastName = 2;
+  int32  nrSeats = 3;
+  int64 tripId = 4;
+}
+
+message Trip{
+  int64 id = 1;
+  string source = 2;
+  string destination = 3;
+  string date = 4;
+  int32 freeSeats = 5;
+}
+
+message ChatRequest {
+  enum Type {Unkown=0; Login = 1; Logout = 2; Add_Booking = 3; Find_All_Trips=4; Find_Bookings_Trip = 5; Find_Trip_Filter = 6;}
+
+  // Identifies which request is filled in.
+  Type type = 1;
+
+  // One of the following will be filled in, depending on the type.
+  oneof payload{
+    Admin admin = 2;
+    Trip trip = 3;
+    Booking booking = 4;
+  }
+}
+
+message ChatResponse{
+  enum Type { Unknown=0; Ok = 1; Error = 2; Refresh=3; Get_Trips = 4; Get_Bookings=5; Get_Trips_Filter=6;  }
+
+  // Identifies which request is filled in.
+  Type type = 1;
+
+  // One of the following will be filled in, depending on the type.
+  string error = 2;
+  repeated Booking bookings=3;
+  Admin admin=4;
+  repeated Trip trip = 5;
+
+}
