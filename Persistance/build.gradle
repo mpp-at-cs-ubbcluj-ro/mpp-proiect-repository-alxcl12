@@ -19,6 +19,11 @@ dependencies {
 
     runtime group: 'org.xerial', name: 'sqlite-jdbc', version: '3.34.0'
     compile 'org.springframework:spring-context:5.0.4.RELEASE'
+
+    compile 'org.hibernate:hibernate-core:5.2.10.Final'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.1.13'
+    compile group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
 }
 
 test {

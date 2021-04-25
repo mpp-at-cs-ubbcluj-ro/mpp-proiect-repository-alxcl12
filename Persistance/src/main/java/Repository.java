@@ -3,7 +3,7 @@
  * @param <ID> id of entity to be stored
  * @param <E> stored entity
  */
-public interface Repository<ID, E extends Entity<ID>> {
+public interface Repository<ID, E extends BaseEntity<ID>> {
     E findOne(ID id);
 
     Iterable<E> findAll();

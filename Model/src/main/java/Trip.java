@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Class used to model a trip
  */
-public class Trip extends Entity<Long> implements Serializable {
+public class Trip extends BaseEntity<Long> implements Serializable {
     private String source;
     private String destination;
     private LocalDateTime departureTime;

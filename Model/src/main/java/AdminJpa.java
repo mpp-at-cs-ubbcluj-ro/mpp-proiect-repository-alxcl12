@@ -1,19 +1,29 @@
 /*
  *  @author albua
- *  created on 28/02/2021
+ *  created on 25/04/2021
  */
 
-import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * Class used to model an administrator to the application
- */
-public class Admin extends BaseEntity<Long> implements Serializable {
+import javax.persistence.*;
+
+
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name = "Admins")
+public class AdminJpa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String username;
     private byte[] passwordHash;
     private String passwordString;
 
-    public Admin(String username, byte[] passwordHash) {
+    public AdminJpa(String username, byte[] passwordHash) {
         this.username = username;
         this.passwordHash = passwordHash;
     }
@@ -46,7 +56,7 @@ public class Admin extends BaseEntity<Long> implements Serializable {
     public String toString() {
         return "Admin{" +
                 "username='" + username + '\'' +
-                ", ID=" + this.getID() +
+                ", ID=" + id +
                 '}';
     }
 }
