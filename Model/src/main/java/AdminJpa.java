@@ -17,9 +17,13 @@ public class AdminJpa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "passwordHash")
     private byte[] passwordHash;
     private String passwordString;
 

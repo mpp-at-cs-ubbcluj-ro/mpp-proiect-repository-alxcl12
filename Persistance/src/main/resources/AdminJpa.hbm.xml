@@ -8,14 +8,14 @@
     <class name="AdminJpa"
            table="Admins">
         <id name="id" column="ID">
-            <generator class="increment"/>
+            <generator class="identity"/>
         </id>
-        <property
-                name="passwordHash"
-                column="passwordHash"/>
         <property
                 name="username"
                 column="username"/>
+        <property
+                name="passwordHash"
+                column="passwordHash"/>
 
     </class>
 </hibernate-mapping>

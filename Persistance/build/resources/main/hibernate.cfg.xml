@@ -8,7 +8,7 @@
 
         <property name="dialect">dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <property name="connection.url">jdbc:sqlite:identifier.sqlite</property>
+        <property name="connection.url">jdbc:sqlite:C:\Facultate\New\AnulII\SemestrulIV\MPP\Laboratoare\Database\problem4db</property>
 
         <property name="hibernate.hbm2ddl.auto">update</property>
 
@@ -21,6 +21,8 @@
 
 <!--        <mapping resource="event/hbm/Event.hbm.xml"/>-->
 <!--        <mapping class="event.annotations.EventAnnot"/>-->
-        <mapping resource="Admin.hbm.xml"/>
+<!--        <mapping resource="AdminJpa.hbm.xml"/>-->
+
+        <mapping class="AdminJpa"/>
     </session-factory>
 </hibernate-configuration>

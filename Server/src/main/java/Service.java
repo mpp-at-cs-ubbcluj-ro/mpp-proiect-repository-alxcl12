@@ -3,6 +3,7 @@
  *  created on 28/02/2021
  */
 
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -23,6 +24,24 @@ public class Service{
         this.repoTrip = repoTrip;
         this.repoAdmins = repoAdmins;
         this.repoBooking = repoBooking;
+
+//        Admin admin = new Admin("gelu", null);
+//        try {
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            md.update("parola".getBytes());
+//
+//            byte[] digest = md.digest();
+//            admin.setPasswordHash(digest);
+//        }
+//        catch (NoSuchAlgorithmException e){
+//            e.printStackTrace();
+//        }
+//
+//        repoAdmins.save(admin);
+        var ad = repoAdmins.findOne(14L);
+
+        var res = repoAdmins.findAll();
+        System.out.println(res);
     }
 
     public Iterable<Trip> getAllTrips(){

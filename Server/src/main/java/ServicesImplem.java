@@ -19,7 +19,8 @@ public class ServicesImplem implements Services {
 
     public ServicesImplem(Service service) {
         this.service = service;
-        loggedClients=new ConcurrentHashMap<>();;
+        loggedClients=new ConcurrentHashMap<>();
+
     }
 
 
@@ -88,7 +89,7 @@ public class ServicesImplem implements Services {
                         i[0]++;
                     });
                     obs.newTrips(curserez);
-                } catch (ServiceException| RemoteException e) {
+                } catch (ServiceException | RemoteException e) {
                     e.printStackTrace();
                 }
             });

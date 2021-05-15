@@ -2,7 +2,6 @@
  *  @author albua
  *  created on 24/04/2021
  */
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,12 +9,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class RepositoryAdminHibernate implements AdminRepoInterface{
             sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
         }
         catch (Exception e) {
-            System.err.println("Exceptie "+e);
+            System.err.println("Exceptie " + e);
             StandardServiceRegistryBuilder.destroy( registry );
         }
     }
@@ -58,60 +55,75 @@ public class RepositoryAdminHibernate implements AdminRepoInterface{
             Transaction transaction = null;
             try {
                 transaction = session.beginTransaction();
-                var result22 = session.createQuery("FROM Admin ", AdminJpa.class).list();
-                result = session.createQuery("FROM Admin WHERE username = :id", AdminJpa.class).setString("id", username) .list();
+                result = session.createQuery("FROM AdminJpa WHERE username = :id", AdminJpa.class).setString("id", username) .list();
                 transaction.commit();
             }
             catch (RuntimeException exception) {
                 if (transaction != null) transaction.rollback();
             }
         }
-        if(result.size() == 0){
+        if(result == null || result.size() == 0){
             return null;
         }
         else {
-//            Admin ad = result.get(0);
-//            if(Arrays.equals(ad.getPasswordHash(), digest)){
-//                return ad;
-//            }
-//            return null;
+            Admin ad = new Admin(result.get(0).getUsername(), result.get(0).getPasswordHash());
+            ad.setID(result.get(0).getId());
+
+            if(Arrays.equals(ad.getPasswordHash(), digest)){
+                return ad;
+            }
+            return null;
+        }
+    }
+
+    @Override
+    public Admin findOne(Long aLong) {
+        List<AdminJpa> result = null;
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = null;
+            try {
+                transaction = session.beginTransaction();
+                result = session.createQuery("FROM AdminJpa WHERE ID = :id", AdminJpa.class).setLong("id", aLong).list();
+                transaction.commit();
+            }
+            catch (RuntimeException exception) {
+                if (transaction != null) transaction.rollback();
+            }
+        }
+
+        if(result.size() != 0){
+            AdminJpa adJpa = result.get(0);
+            Admin toReturn = new Admin(adJpa.getUsername(), adJpa.getPasswordHash());
+            toReturn.setID(adJpa.getId());
+            toReturn.setPasswordString(adJpa.getPasswordString());
+            return toReturn;
         }
         return null;
     }
 
     @Override
-    public Admin findOne(Long aLong) {
-        List<Admin> result = null;
-        try (Session session = sessionFactory.openSession()) {
-            Transaction transaction = null;
-            try {
-                transaction = session.beginTransaction();
-                result = session.createQuery("FROM Admins WHERE ID = :id", Admin.class).setLong("id", aLong) .list();
-                transaction.commit();
-            }
-            catch (RuntimeException exception) {
-                if (transaction != null) transaction.rollback();
-            }
-        }
-
-        return result.get(0);
-    }
-
-    @Override
     public Iterable<Admin> findAll() {
-        List<Admin> result = null;
+        List<AdminJpa> result = new ArrayList<>();
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = null;
             try {
                 transaction = session.beginTransaction();
-                result = session.createQuery("FROM Admins", Admin.class).list();
+                result = session.createQuery("FROM AdminJpa", AdminJpa.class).list();
                 transaction.commit();
             }
             catch (RuntimeException exception) {
+                exception.printStackTrace();
                 if (transaction != null) transaction.rollback();
             }
         }
-        return result;
+        List<Admin> res = new ArrayList<>();
+        result.forEach(x->{
+            Admin ad = new Admin(x.getUsername(), x.getPasswordHash());
+            ad.setID(x.getId());
+            res.add(ad);
+        });
+
+        return res;
     }
 
     @Override
@@ -120,7 +132,13 @@ public class RepositoryAdminHibernate implements AdminRepoInterface{
             Transaction tx = null;
             try {
                 tx = session.beginTransaction();
-                session.save(entity);
+                AdminJpa adminJpa = new AdminJpa();
+                adminJpa.setId(entity.getID());
+                adminJpa.setPasswordHash(entity.getPasswordHash());
+                adminJpa.setUsername(entity.getUsername());
+                adminJpa.setPasswordString(entity.getPasswordString());
+
+                session.save(adminJpa);
                 tx.commit();
             } catch (RuntimeException ex) {
                 if (tx != null)
@@ -136,7 +154,7 @@ public class RepositoryAdminHibernate implements AdminRepoInterface{
             try {
                 tx = session.beginTransaction();
 
-                List<Admin> admin = session.createQuery("From Admins where ID= :id", Admin.class).setLong("id", aLong).list();
+                List<AdminJpa> admin = session.createQuery("From AdminJpa where ID= :id", AdminJpa.class).setLong("id", aLong).list();
 
                 if (admin.size()!=0){
                     session.delete(admin.get(0));

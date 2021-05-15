@@ -2,8 +2,8 @@ ValidationException.java
  ValidationException
 Validator.java
  Validator
-AdminJpa.java
- AdminJpa
+Admin.java
+ Admin
 BaseEntity.java
  BaseEntity
 Booking.java
@@ -16,5 +16,5 @@ AdminValidator.java
  AdminValidator
 BookingValidator.java
  BookingValidator
-Admin.java
- Admin
+AdminJpa.java
+ AdminJpa

@@ -2,8 +2,8 @@ dialect/identity/SQLiteDialectIdentityColumnSupport.java
  dialect.identity.SQLiteDialectIdentityColumnSupport
 AdminRepoInterface.java
  AdminRepoInterface
-RepositoryAdminHibernate.java
- RepositoryAdminHibernate
+JdbcUtil.java
+ JdbcUtil
 TripRepoInterface.java
  TripRepoInterface
 BookingRepoInterface.java
@@ -23,5 +23,5 @@ RepositoryBooking.java
  RepositoryBooking
 RepositoryTrip.java
  RepositoryTrip
-JdbcUtil.java
- JdbcUtil
+RepositoryAdminHibernate.java
+ RepositoryAdminHibernate
