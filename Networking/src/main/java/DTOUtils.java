@@ -3,12 +3,12 @@
  *  created on 25/03/2021
  */
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
+import models.Admin;
+import models.Booking;
+import models.Trip;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.stream.StreamSupport;
 
 public class DTOUtils {
     public static Admin getFromDTO(AdminDTO adminDTO){

@@ -3,6 +3,10 @@
  *  created on 25/03/2021
  */
 
+import models.Admin;
+import models.Booking;
+import models.Trip;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

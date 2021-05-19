@@ -1,18 +1,18 @@
-ValidationException.java
- ValidationException
-Booking.java
- Booking
-Entity.java
- Entity
-Trip.java
- Trip
-TripValidator.java
- TripValidator
-AdminValidator.java
- AdminValidator
-Validator.java
- Validator
-BookingValidator.java
- BookingValidator
-Admin.java
- Admin
+models/Entity.java
+ models.Entity
+models/AdminValidator.java
+ models.AdminValidator
+models/Validator.java
+ models.Validator
+models/ValidationException.java
+ models.ValidationException
+models/Admin.java
+ models.Admin
+models/TripValidator.java
+ models.TripValidator
+models/Trip.java
+ models.Trip
+models/BookingValidator.java
+ models.BookingValidator
+models/Booking.java
+ models.Booking

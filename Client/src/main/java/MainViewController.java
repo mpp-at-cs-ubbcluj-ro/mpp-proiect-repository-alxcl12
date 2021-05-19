@@ -16,12 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import models.Booking;
+import models.Trip;
 
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 

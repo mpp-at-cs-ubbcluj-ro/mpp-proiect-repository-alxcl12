@@ -8,9 +8,9 @@
 //import javafx.scene.Scene;
 //import javafx.scene.layout.StackPane;
 //import javafx.stage.Stage;
-//import AdminValidator;
-//import BookingValidator;
-//import TripValidator;
+//import models.AdminValidator;
+//import models.BookingValidator;
+//import models.TripValidator;
 //
 //import java.io.FileReader;
 //import java.io.IOException;
@@ -23,9 +23,9 @@
 //
 //    @Override
 //    public void start(Stage primaryStage) throws IOException {
-//        AdminValidator adminValidator = new AdminValidator();
-//        TripValidator tripValidator = new TripValidator();
-//        BookingValidator bookingValidator = new BookingValidator();
+//        models.AdminValidator adminValidator = new models.AdminValidator();
+//        models.TripValidator tripValidator = new models.TripValidator();
+//        models.BookingValidator bookingValidator = new models.BookingValidator();
 //
 //
 //        Properties props = new Properties();
@@ -42,7 +42,7 @@
 //        RepositoryBooking bookingRepo = new RepositoryBooking(props, bookingValidator, tripRepository);
 //
 //
-//        List<Admin> admins = new ArrayList<Admin>();
+//        List<models.Admin> admins = new ArrayList<models.Admin>();
 //
 //
 //        Service service = new Service(tripRepository, adminRepo, bookingRepo, admins);

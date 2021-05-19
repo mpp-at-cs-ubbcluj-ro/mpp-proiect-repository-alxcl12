@@ -64,7 +64,7 @@
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                                <Tab fx:id="friendRequestTab" text="Booking">
+                                <Tab fx:id="friendRequestTab" text="models.Booking">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>

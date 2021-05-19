@@ -2,6 +2,10 @@
  *  @author albua
  *  created on 25/03/2021
  */
+import models.Admin;
+import models.Booking;
+import models.Trip;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,7 +35,7 @@ public class ServicesImplem implements Services {
 
         if (found){
             if(loggedClients.get(foundA.getID()) != null) {
-                throw new ServiceException("Admin already logged in.");
+                throw new ServiceException("models.Admin already logged in.");
             }
 
             loggedClients.put(foundA.getID(), client);

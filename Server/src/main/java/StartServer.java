@@ -3,12 +3,14 @@
  *  created on 25/03/2021
  */
 
+import repo.*;
+import models.AdminValidator;
+import models.BookingValidator;
+import models.TripValidator;
 import utils.AbstractServer;
 import utils.ServerException;
 
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 
 public class StartServer {
@@ -47,7 +49,7 @@ public class StartServer {
 //            e.printStackTrace();
 //        }
 //
-//        Admin ad = new Admin("toor", digest);
+//        models.Admin ad = new models.Admin("toor", digest);
 //        adminRepo.save(ad);
 
         Services serverImpl = new ServicesImplem(service);

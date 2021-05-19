@@ -1,4 +1,6 @@
-import java.time.LocalDateTime;
+import models.Admin;
+import models.Booking;
+import models.Trip;
 
 public interface Services {
     void login(Admin admin, Observer client) throws ServiceException;
